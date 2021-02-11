@@ -24,15 +24,4 @@ class Users extends Model
      public function scopeSelection($query){
          return $query->select('role_id','f_name','m_name','l_name','age', 'username','password','phone','address','email');
      }
-<<<<<<< HEAD
-    // public function setPasswordAttribute($password){
-    //     if(!empty($password)){
-    //         return $this->attributes['password']=bcrypt($password);
-    //     }
-    // }
-    
-}
-=======
-    
     }
->>>>>>> 3ee3c3ad80b8867b0eec88e502ba2575d631b204
