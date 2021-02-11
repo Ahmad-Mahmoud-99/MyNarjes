@@ -13,7 +13,7 @@ class LoginController extends Controller
         return view('layouts.login');
     }
     public function Login(){
-
+      return Users::selection()-get();
          
         // $remember_me=$request->has('remember_me')?'true':'false';
         if(auth()->guard('admin')->attempt(['email'=>$request->input('username'),'password'=>$request->input('password')]) ){

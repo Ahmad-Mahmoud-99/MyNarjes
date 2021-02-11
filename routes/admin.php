@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
+Route::group(['prefix'=>'user','namespace'=>'users'],function(){
+Route::get('login', 'LoginController@getLogin')->name('get.admin.login');
+Route::post('login', 'LoginController@Login')->name('admin.login');
+});
 
 
 
