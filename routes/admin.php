@@ -13,22 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts.login');
+// Route::get('/admin', function () {
+//     return view('admin.dashboard');
 // });
 
 Auth::routes();
-Route::group(['prefix'=>'user','namespace'=>'users'],function(){
-Route::get('login', 'LoginController@getLogin')->name('get.admin.login');
-Route::post('login', 'LoginController@Login')->name('admin.login');
-});
+Route::group(['namespace'=>'Admin','middleware'=>'auth:admin'],function(){
+    Route::get('/admin','DashboardController@index')->name('admin.dashboard');
+    ####################patient managment##############
+    Route::group(['prefix'=>'patientManagment'],function(){
+        Route::get('/','patientManagmentController@index')->name('admin.patientManagment');
+        Route::get('create','patientManagmentController@create')->name('admin.patientManagment.create');
+        Route::post('store','patientManagmentController@store')->name('admin.patientManagment.store');
+ 
+        
+        // Route::get('edit/{id}','patientManagmentController@edit')->name('admin.patientManagment.edit');
+        // Route::post('update/{id}','patientManagmentController@update')->name('admin.patientManagment.update');//or put
+        // Route::get('delete/{id}','patientManagmentController@destroy')->name('admin.patientManagment.delete');
+ 
+ 
+     });
 
-Route::group(['prefix'=>'user','namespace'=>'users'],function(){
-    Route::get('login', 'LoginController@getLogin')->name('get.admin.login');
-    Route::post('login', 'LoginController@Login')->name('admin.login');
 });
-
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
 
 
