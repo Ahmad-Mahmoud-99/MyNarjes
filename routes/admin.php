@@ -23,6 +23,10 @@ Route::get('login', 'LoginController@getLogin')->name('get.admin.login');
 Route::post('login', 'LoginController@Login')->name('admin.login');
 });
 
+Route::group(['prefix'=>'user','namespace'=>'users'],function(){
+    Route::get('login', 'LoginController@getLogin')->name('get.admin.login');
+    Route::post('login', 'LoginController@Login')->name('admin.login');
+});
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
