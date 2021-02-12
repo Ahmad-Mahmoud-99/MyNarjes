@@ -21,6 +21,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    // public const HOME = '/';
+
     public const RESULT = '/result';
     public const ADMIN= '/admin';
     public const EMPLOYEE = '/empolyee';
@@ -52,6 +54,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapEmployeeRoutes();
         $this->mapManagerRoutes();
         $this->mapAccountantRoutes();
+        $this->mapLoginRoutes();
 
         //
     }
@@ -92,6 +95,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/accountant.php'));
+    }
+    protected function mapLoginRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/login.php'));
     }
 
     /**

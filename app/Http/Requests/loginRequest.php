@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Requests;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class loginRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +27,11 @@ class loginRequest extends FormRequest
             //
         ];
     }
+
     public function messages()
     {
         return [
             //
-            
         ];
-    }
+    }   
 }

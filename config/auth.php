@@ -94,11 +94,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Users::class,
         ],
-        'employeed' => [
+        'employees' => [
             'driver' => 'eloquent',
             'model' => App\Models\Users::class,
         ],
-        'accountantd' => [
+        'accountants' => [
             'driver' => 'eloquent',
             'model' => App\Models\Users::class,
         ],

@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Users extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Users extends Authenticatable 
 {
     //
     protected  $table='user';
     protected $fillable = [
-        'role_id','f_name','m_name','l_name','age', 'username','password','phone','address','email','start_date','end_date','created_at','updated_at',
+        'role_id','f_name','m_name','l_name','age','username','password','phone','address','email','start_date','end_date','created_at','updated_at',
     ];
 
     /**
