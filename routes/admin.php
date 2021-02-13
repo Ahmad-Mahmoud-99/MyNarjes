@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/admin', function () {
 //     return view('admin.dashboard');
 // });
-    define('PAGINATION_COUNT',5);
+define('PAGINATION_COUNT',5);
 
 Auth::routes();
 Route::group([/*, 'middleware'=>'auth:admin'*/],function(){
@@ -33,7 +33,7 @@ Route::group([/*, 'middleware'=>'auth:admin'*/],function(){
         // Route::get('delete/{id}','patientManagmentController@destroy')->name('admin.patientManagment.delete');
 
 
-     });
+    });
 
 });
 
