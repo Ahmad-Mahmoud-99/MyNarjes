@@ -31,7 +31,7 @@ The above copyright notice and this permission notice shall be included in all c
 </head>
 
 <body class="">
-<div class="wrapper ">
+ <div class="wrapper ">
     @include('admin.includes.sidebar')
 
     <div class="main-panel">
@@ -390,6 +390,8 @@ The above copyright notice and this permission notice shall be included in all c
 
             });
         </script>
+    </div>
+ </div>
 </body>
 
 </html>
