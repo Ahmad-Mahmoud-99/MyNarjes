@@ -5,7 +5,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="#" data-color="rose" class="simple-text logo-normal" style="font-size: 16px; text-align: center; color:white ; font-weight: bold;text-transform: capitalize;" >
-          
+
              Patient's Friends Association
         </a>
        </div>
@@ -62,7 +62,7 @@
             <div class="collapse" id="patientsExamples">
               <ul class="nav">
                 <li class="nav-item ">
-                  <a class="nav-link" href="../examples/pages/Patients Managment.html">
+                  <a class="nav-link" href="{{route("admin.patientManagment")}}">
                     <span class="sidebar-mini"> PM </span>
                     <span class="sidebar-normal"> Patients management
                     </span>
@@ -74,12 +74,12 @@
                     <span class="sidebar-normal"> Add patients </span>
                   </a>
                 </li>
-             
-               
-          
-              
-          
-      
+
+
+
+
+
+
               </ul>
             </div>
           </li>
@@ -92,7 +92,7 @@
             </a>
             <div class="collapse" id="analysisExamples">
               <ul class="nav">
-               
+
                 <li class="nav-item ">
                   <a class="nav-link" href="#">
                     <span class="sidebar-mini"> SA </span>
@@ -105,11 +105,11 @@
                     <span class="sidebar-normal"> Add New Analysis</span>
                   </a>
                 </li>
-               
-              
-             
-               
-            
+
+
+
+
+
               </ul>
             </div>
           </li>

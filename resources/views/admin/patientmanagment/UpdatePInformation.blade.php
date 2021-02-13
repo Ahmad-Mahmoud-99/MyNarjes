@@ -27,7 +27,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Files -->
   <link href="{{asset('assets/css/material-dashboard.css?v=2.2.2')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/demo/demo.css" rel="stylesheet')}}" />
 </head>
 
 <body class="">
@@ -38,8 +38,8 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="#" data-color="rose" class="simple-text logo-normal" style="font-size: 16px; text-align: center; color:white ; font-weight: bold;text-transform: capitalize;" >
-          
+     <div class="logo"><a href="#" data-color="rose" class="simple-text logo-normal" style="font-size: 16px; text-align: center; color:white ; font-weight: bold;text-transform: capitalize;" >
+
 Patient's Friends Association
         </a>
        </div>
@@ -81,7 +81,7 @@ Patient's Friends Association
         </div>
         <ul class="nav">
           <li class="nav-item active ">
-            <a class="nav-link" href="../examples/dashboard.html">
+            <a class="nav-link" href="../../examples/dashboard.html">
               <i class="material-icons">dashboard</i>
               <p> Dashboard </p>
             </a>
@@ -96,24 +96,24 @@ Patient's Friends Association
             <div class="collapse" id="patientsExamples">
               <ul class="nav">
                 <li class="nav-item ">
-                  <a class="nav-link" href="Patients Managment.html">
+                  <a class="nav-link" href="../examples/pages/Patients Managment.html">
                     <span class="sidebar-mini"> PM </span>
                     <span class="sidebar-normal"> Patients management
                     </span>
                   </a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="Add patients.html">
+                  <a class="nav-link" href="../examples/pages/Add patients.html">
                     <span class="sidebar-mini"> AP </span>
                     <span class="sidebar-normal"> Add patients </span>
                   </a>
                 </li>
-             
-               
-          
-              
-          
-      
+
+
+
+
+
+
               </ul>
             </div>
           </li>
@@ -126,7 +126,7 @@ Patient's Friends Association
             </a>
             <div class="collapse" id="analysisExamples">
               <ul class="nav">
-               
+
                 <li class="nav-item ">
                   <a class="nav-link" href="#">
                     <span class="sidebar-mini"> SA </span>
@@ -138,7 +138,12 @@ Patient's Friends Association
                     <span class="sidebar-mini"> ANA </span>
                     <span class="sidebar-normal"> Add New Analysis</span>
                   </a>
-                </li>            
+                </li>
+
+
+
+
+
               </ul>
             </div>
           </li>
@@ -178,14 +183,14 @@ Patient's Friends Association
               </ul>
             </div>
           </li>
-          <li class="nav-item active ">
-            <a class="nav-link" data-toggle="collapse" href="#tablesExamples" aria-expanded="true">
+          <li class="nav-item ">
+            <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
               <i class="material-icons">grid_on</i>
               <p> Tables
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse show" id="tablesExamples">
+            <div class="collapse" id="tablesExamples">
               <ul class="nav">
                 <li class="nav-item ">
                   <a class="nav-link" href="../../examples/tables/regular.html">
@@ -193,7 +198,12 @@ Patient's Friends Association
                     <span class="sidebar-normal"> Regular Tables </span>
                   </a>
                 </li>
-               
+                <li class="nav-item ">
+                  <a class="nav-link" href="../../examples/tables/extended.html">
+                    <span class="sidebar-mini"> ET </span>
+                    <span class="sidebar-normal"> Extended Tables </span>
+                  </a>
+                </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="../../examples/tables/datatables.net.html">
                     <span class="sidebar-mini"> DT </span>
@@ -266,7 +276,7 @@ Patient's Friends Association
                 <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Patients Managment</a>
+            <a class="navbar-brand" href="javascript:;">Update Patient Information</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -328,53 +338,97 @@ Patient's Friends Association
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="content">
+      <div class="content"  >
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-rose card-header-icon">
+            <div class="col-md-8">
+              <div class="card" style="margin-left: 200px;margin-top: 60px ">
+                <div class="card-header card-header-icon card-header-rose">
                   <div class="card-icon">
-                    <i class="material-icons">manage_accounts</i>
+                    <i class="material-icons">edit</i>
                   </div>
-                  <h4 class="card-title">Patients Managment</h4>
+                  <h4 class="card-title">Update Patient Information </h4>
                 </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th class="text-center">#</th>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last Name</th>
-                          <th>Gender</th>
-                          <th>Address</th>
-                          <th>Phone</th>
-                          <th>Update Information</th>
-                          <th>Patient Analyzes</th>
-                        </tr>
-                        
+                <div class="card-body" >
+                  <form>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">First Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Middle Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Gender</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Age</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
 
-                      </thead>
-                     
+                      <div class="col-md-4">
+                        <div class="form-group">
 
-                    </table>
+                          <input type="Date" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
 
-                     <br><br><br> <br><br><br>
-                  </div>
-                  <br><br><br> <br><br><br>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating"> Address</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Phone</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email</label>
+                          <input type="email" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                   <br><br>
+                    <button type="submit" class="btn btn-rose " style="margin-left: 330px">Update</button>
+                    <div class="clearfix"></div> <br><br>
+                  </form>
                 </div>
               </div>
             </div>
-            
-           
+          </div>
         </div>
       </div>
-     
       <footer class="footer">
         <div class="container-fluid">
-          
+
           <div class="copyright float-right">
             &copy;
             <script>
@@ -386,8 +440,7 @@ Patient's Friends Association
       </footer>
     </div>
   </div>
-  
- <div class="fixed-plugin">
+  <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
@@ -467,8 +520,8 @@ Patient's Friends Association
             <img src="{{asset('assets/img/d.jpeg')}}" alt="">
           </a>
         </li>
-        
-       
+
+
         <li class="header-title">Select the backdround that suits you !</li>
         <li class="button-container text-center">
           <button id="facebook" class="btn btn-round btn-facebook" onclick="document.location='https://www.facebook.com/PFS.Tulkarm'"><i class="fa fa-facebook-f"></i> </button>
@@ -482,7 +535,7 @@ Patient's Friends Association
   <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
   <script src="{{asset('assets/js/core/bootstrap-material-design.min.js')}}"></script>
-  <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}"></script>
+  <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <!-- Plugin for the momentJs  -->
   <script src="{{asset('assets/js/plugins/moment.min.js')}}"></script>
   <!--  Plugin for Sweet Alert -->
@@ -490,7 +543,7 @@ Patient's Friends Association
   <!-- Forms Validations Plugin -->
   <script src="{{asset('assets/js/plugins/jquery.validate.min.js')}}"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src=".{{asset('assets/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
+  <script src="{{asset('assets/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
   <script src="{{asset('assets/js/plugins/bootstrap-selectpicker.js')}}"></script>
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
@@ -511,8 +564,7 @@ Patient's Friends Association
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
   <script src="{{asset('assets/js/plugins/arrive.min.js')}}"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
   <!-- Chartist JS -->
   <script src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>
   <!--  Notifications Plugin    -->
@@ -716,6 +768,11 @@ Patient's Friends Association
 
         });
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      md.checkFullPageBackgroundImage();
     });
   </script>
 </body>

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','الأدمن')
+@section('title','Admin')
 @section('content')
 <div class="content" style=" text-align: center;">
         <img src="{{asset('assets/img/symboll.jpg')}}" height="420" style="border-radius: 50%;">
