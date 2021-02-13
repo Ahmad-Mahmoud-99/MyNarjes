@@ -104,17 +104,17 @@ The above copyright notice and this permission notice shall be included in all c
                   </span>
                 </div>
                 <div class="card-footer justify-content-center">
-                <button type="submit" class="btn btn-light">
-                    <!-- <a href="#pablo" class="btn btn-rose btn-link btn-lg"> -->
+                    <button  type="submit" class="btn btn-rose btn-link btn-lg">
                     LOG IN
-                    <!-- </a> -->
                      </button>
- 
+                </div>
+
+                     <div>
                      @include('alert.success')
                       @include('alert.errors') 
-
+                      <br>
+                      </div>
                      
-                </div>
               </div>
             </form>
           </div>
