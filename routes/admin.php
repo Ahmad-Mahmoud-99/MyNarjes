@@ -35,7 +35,7 @@ Route::group([/*, 'middleware'=>'auth:admin'*/],function(){
 
      });
 
-// });
+});
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

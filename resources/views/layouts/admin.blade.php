@@ -38,17 +38,18 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- Navbar -->
       @include('admin.includes.header')
       <!-- End Navbar -->
-      
-      @yield('content')
+      <div class="content"  >
+        <div class="container-fluid">
+           @yield('content')
 
-            <!-- <button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown">
-7 days
-</button> -->
+              <!-- <button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown">
+                 7 days
+                    </button> -->
            
-      @include('admin.includes.footer')
+            @include('admin.includes.footer')
 
-  </div>
-  </div>
+       </div>
+       </div>
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">

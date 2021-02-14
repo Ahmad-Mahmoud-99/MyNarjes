@@ -2,15 +2,16 @@
 @section('title','patient Manangment')
 @section('content')
 
-    <div class="main-panel">
-      <!-- Navbar -->
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
+  
+<div class="row">
             <div class="col-md-12">
               <div class="card">
-
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">manage_accounts</i>
+                  </div>
+                  <h4 class="card-title">Patients Managment</h4>
+                </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
@@ -69,16 +70,10 @@
                 </div>
               </div>
             </div>
-
-
+            
+           
         </div>
       </div>
 
-
-    </div>
-  </div>
-
-
-  <!--   Core JS Files   -->
 
 @endsection
