@@ -124,10 +124,6 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="container">
                 <nav class="float-left">
                     <ul>
-
-
-
-
                     </ul>
                 </nav>
                 <div class="copyright float-right">
