@@ -16,7 +16,7 @@
           </div> -->
           <div class="user-info">
             <a data-toggle="collapse" href="#collapseExample" class="username">
-              <span>
+              <span style="padding-left: 20px">
                 Admin Name
                 <b class="caret"></b>
               </span>
@@ -62,7 +62,7 @@
             <div class="collapse" id="patientsExamples">
               <ul class="nav">
                 <li class="nav-item ">
-                  <a class="nav-link" href="{{route("admin.patientManagment")}}">
+                  <a class="nav-link" href="{{route('admin.patientManagment')}}">
                     <span class="sidebar-mini"> PM </span>
                     <span class="sidebar-normal"> Patients management
                     </span>
@@ -74,12 +74,6 @@
                     <span class="sidebar-normal"> Add patients </span>
                   </a>
                 </li>
-
-
-
-
-
-
               </ul>
             </div>
           </li>

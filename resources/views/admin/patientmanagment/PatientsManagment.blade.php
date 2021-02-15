@@ -1,8 +1,6 @@
 @extends('layouts.admin')
-@section('title','patient Manangment')
+@section('title','Patient Manangment')
 @section('content')
-
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -15,7 +13,6 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
-
                             <thead>
                             <tr>
                                 <th class="text-center">#</th>

@@ -18,7 +18,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Material Dashboard PRO by Creative Tim
+        @yield('title')
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -36,20 +36,21 @@ The above copyright notice and this permission notice shall be included in all c
 
     <div class="main-panel">
         <!-- Navbar -->
-    @include('admin.includes.header')
-    <!-- End Navbar -->
+         @include('admin.includes.header')
+         <!-- End Navbar -->
         <div class="content"  >
             <div class="container-fluid">
-            @yield('content')
-
+               @yield('content')
+            </div>
             <!-- <button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown">
                  7 days
                     </button> -->
 
                 @include('admin.includes.footer')
 
-            </div>
         </div>
+     </div>
+
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
@@ -112,22 +113,22 @@ The above copyright notice and this permission notice shall be included in all c
                     <li class="header-title">Images</li>
                     <li class="active">
                         <a class="img-holder switch-trigger" href="javascript:void(0)">
-                            <img src="../assets/img/c.jpeg" alt="">
+                            <img src="{{asset('assets/img/c.jpeg')}}" alt="">
                         </a>
                     </li>
                     <li>
                         <a class="img-holder switch-trigger" href="javascript:void(0)">
-                            <img src="../assets/img/b.jpeg" alt="">
+                            <img src="{{asset('assets/img/b.jpeg')}}" alt="">
                         </a>
                     </li>
                     <li>
                         <a class="img-holder switch-trigger" href="javascript:void(0)">
-                            <img src="../assets/img/aa.jpeg" alt="">
+                            <img src="{{asset('assets/img/aa.jpeg')}}" alt="">
                         </a>
                     </li>
                     <li>
                         <a class="img-holder switch-trigger" href="javascript:void(0)">
-                            <img src="../assets/img/d.jpeg" alt="">
+                            <img src="{{asset('assets/img/d.jpeg')}}" alt="">
                         </a>
                     </li>
 
