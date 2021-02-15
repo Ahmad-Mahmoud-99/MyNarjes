@@ -15,7 +15,8 @@
                   <br>
                 </div>
                 <div class="card-body">
-                  <form>
+                  
+                <form>
                     <div class="row">
                       <label class="col-sm-3 col-form-label">First Name :</label>
                       <div class="col-sm-3">
@@ -50,13 +51,13 @@
                       <label class="col-sm-3 col-form-label">Password :</label>
                       <div class="col-sm-3">
                         <div class="form-group">
-                          <input type="text" class="form-control" value="Disabled " disabled>
+                          <input type="password" class="form-control" value="Disabled " disabled>
                         </div>
                       </div>
                       <label class="col-sm-3 col-form-label"> User Email :</label>
                       <div class="col-sm-3">
                         <div class="form-group">
-                          <input type="text" class="form-control" value="Disabled " disabled>
+                          <input type="email" class="form-control" value="Disabled " disabled>
                         </div>
                       </div>
                     </div>
@@ -81,17 +82,27 @@
                       <label class="col-sm-3 col-form-label">Start Date :</label>
                       <div class="col-sm-3">
                         <div class="form-group">
-                          <input type="text" class="form-control" value="Disabled" disabled>
+                          <input type="date" class="form-control" value="Disabled" disabled>
                         </div>
                       </div>
                       <label class="col-sm-3 col-form-label">End Date :</label>
                       <div class="col-sm-3">
                         <div class="form-group">
-                          <input type="text" class="form-control" value="Disabled " disabled>
+                          <input type="date" class="form-control" value="Disabled " disabled>
                         </div>
                       </div>
                       
                     </div>
+                    <br>
+                    <div class="row">
+                      <label class="col-sm-6 col-form-label">User Phone :  </label>
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <input type="text" class="form-control" value="Disabled" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <br><br>
 
                   </form>
