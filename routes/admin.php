@@ -28,12 +28,21 @@ Route::group([/*, 'middleware'=>'auth:admin'*/],function(){
         Route::post('store','patientManagmentController@store')->name('admin.patientManagment.store');
 
 
+        Route::get('edit/{id}','patientManagmentController@edit')->name('admin.patientManagment.edit');
+        Route::post('update/{id}','patientManagmentController@update')->name('admin.patientManagment.update');//or put
+    });
+    ########################end patientmanagment###########################
+    ####################user##############
+    Route::group(['prefix'=>'userManagment', 'namespace'=>'user'],function(){
+        Route::get('/','userController@index')->name('admin.myProfile');
+        // Route::get('create','userController@create')->name('admin.patientManagment.create');
+        // Route::post('store','userController@store')->name('admin.patientManagment.store');
+
+
         // Route::get('edit/{id}','patientManagmentController@edit')->name('admin.patientManagment.edit');
         // Route::post('update/{id}','patientManagmentController@update')->name('admin.patientManagment.update');//or put
-        // Route::get('delete/{id}','patientManagmentController@destroy')->name('admin.patientManagment.delete');
-
-
     });
+    ########################end user###########################
 
 });
 

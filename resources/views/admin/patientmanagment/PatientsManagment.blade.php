@@ -1,8 +1,7 @@
 @extends('layouts.admin')
-@section('title','patient Manangment')
+@section('title','Patient Manangment')
+@section('dash','Patient Manangment')
 @section('content')
-
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -13,9 +12,10 @@
                     <h4 class="card-title">Patients Managment</h4>
                 </div>
                 <div class="card-body">
+                @include('alert.success')
+                @include('alert.errors')
                     <div class="table-responsive">
                         <table class="table">
-
                             <thead>
                             <tr>
                                 <th class="text-center">#</th>
@@ -46,9 +46,11 @@
                                         <td>{{$index->phone}}</td>
                                         <td>{{$index->birthday}}</td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" class="btn btn-success">
+                                           <a href="{{route('admin.patientManagment.edit',$index->patient_id)}}"> 
+                                              <button type="button" rel="tooltip" class="btn btn-success">
                                                 <i class="material-icons">edit</i>
-                                            </button>
+                                              </button>
+                                            </a>
                                             <button type="button" rel="tooltip" class="btn btn-danger">
                                                 <i class="material-icons">history</i>
                                             </button>
@@ -64,9 +66,8 @@
                         </table>
 
                         <div class="d-flex justify-content-center"> {!! $patient->links() !!} </div>
-                        <br><br><br> <br><br><br>
+                        
                     </div>
-                    <br><br><br> <br><br><br>
                 </div>
             </div>
         </div>
