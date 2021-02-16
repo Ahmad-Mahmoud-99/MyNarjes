@@ -38,7 +38,7 @@ The above copyright notice and this permission notice shall be included in all c
         <!-- Navbar -->
          @include('admin.includes.header')
          <!-- End Navbar -->
-        <div class="content"  >
+        <div class="content"  style="min-height: calc(100vh - 151px); padding: 0px 15px;">
             <div class="container-fluid">
                @yield('content')
             </div>
