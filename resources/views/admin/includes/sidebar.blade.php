@@ -24,21 +24,21 @@
             <div class="collapse" id="collapseExample">
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{{route('admin.myProfile')}}">
                     <span class="sidebar-mini"> MP </span>
                     <span class="sidebar-normal"> My Profile </span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="EditProfile.html">
                     <span class="sidebar-mini"> EP </span>
                     <span class="sidebar-normal"> Edit Profile </span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="Users Managment.html">
                     <span class="sidebar-mini"> EUP </span>
-                    <span class="sidebar-normal"> Edit User Profile </span>
+                    <span class="sidebar-normal"> Users Managment </span>
                   </a>
                 </li>
               </ul>
@@ -70,13 +70,14 @@
                   </a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="../examples/pages/Add patients.html">
+                  <a class="nav-link" href="{{route('admin.patientManagment.create')}}">
                     <span class="sidebar-mini"> AP </span>
                     <span class="sidebar-normal"> Add patients </span>
                   </a>
                 </li>
               </ul>
             </div>
+            
           </li>
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#analysisExamples">

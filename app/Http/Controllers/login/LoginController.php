@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\users;
+namespace App\Http\Controllers\login;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class LoginController extends Controller
    try{
       $username=$request->input('username');
       $pass=$request->input('password');
-
+      
       $user=Users::where('username',$username)->selection()->first();
       $role_id=$user->role_id;
         if($role_id==1){
@@ -33,22 +33,22 @@ class LoginController extends Controller
         }else{
           return redirect()->back()->with(['error'=>'هناك خطأ في البيانات']);
          }
+        
 
+        //  return auth()->guard($permetion)->attempt(['username'=>$username,'password'=>$pass]);
 
-        // return auth()->guard($permetion)->attempt(['username'=>$username,'password'=>$pass]);
-
-          $req=auth()->guard($permetion)->attempt(['username'=>$username,'password'=>$pass]);
+          $req=auth()->guard($permetion)->attempt(['username'=>$usern,'password'=>$pass]);
         if($req){
             return redirect()->route($permetion.'.dashboard')->with(['success'=>'تم الدخول بنجاح']);
         }
         return redirect()->back()->with(['error'=>'هناك خطأ في كلمة المرور']);
-
-
+        
+    
 
      }catch(\Exception $ex){
         return redirect()->back()->with(['error'=>'هناك خطأ في اسم المستخدم ']);
     }
-
+    
 
 }
 }
