@@ -22,6 +22,6 @@ class Users extends Authenticatable
     ];
     
      public function scopeSelection($query){
-         return $query->select('role_id','f_name','m_name','l_name','age', 'username','password','phone','address','email');
+         return $query->select('role_id','f_name','m_name','l_name','age', 'username','password','phone','address','email','start_date','end_date');
      }
     }

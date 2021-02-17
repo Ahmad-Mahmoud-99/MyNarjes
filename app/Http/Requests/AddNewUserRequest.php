@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddPatientRequest extends FormRequest
+class AddNewUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,34 +24,33 @@ class AddPatientRequest extends FormRequest
     public function rules()
     {
         return [
+            //
             'f_name'=>'required|string',
             'm_name'=>'required|string',
             'l_name'=>'required|string',
-            'birthday'=>'required',
-            'gender'=>'required',
+            'start_date'=>'required',
+            'role_name'=>'required',
             'age'=>'required|numeric',
-            'email'=>'email|nullable',
+            'email'=>'required|email|nullable',//unique
             'address'=>'required',
-            'phone'=>'min:10|max:14|nullable',
+            'password'=>'required',
+            'username'=>'required',//unique
+            'phone'=>'required|min:10|max:14|nullable',//unique
 
         ];
+        
     }
     public function messages()
     {
         return [
             
            'email'=>'يجب اخال الايميل بالصورة الصحيحة',
-            'f_name.required'=>'هذا الحقل مطلوب ',
-            'm_name.required'=>'هذا الحقل مطلوب ',
-            'l_name.required'=>'هذا الحقل مطلوب ',
-            'gender.required'=>'هذا الحقل مطلوب ',
-            'birthday.required'=>'هذا الحقل مطلوب ',
-            'age.required'=>'هذا الحقل مطلوب ',
-            'address.required'=>'هذا الحقل مطلوب ',
+            'required'=>'هذا الحقل مطلوب ',
              'phone.min'=>' رقم الجوال مكون من 10 منازل على الأقل',
              'phone.max'=>'رقم الجوال مكون من 14 منازل على الأكثر',
              'string'=>'يجب ادخال نص',
              'numeric'=>'يجب ادخال رقم',
+
         ];
     }
 }
