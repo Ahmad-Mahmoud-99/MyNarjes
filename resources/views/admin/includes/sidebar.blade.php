@@ -24,21 +24,27 @@
             <div class="collapse" id="collapseExample">
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{{route('admin.myProfile')}}">
                     <span class="sidebar-mini"> MP </span>
                     <span class="sidebar-normal"> My Profile </span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="pages/EditProfile.html">
                     <span class="sidebar-mini"> EP </span>
                     <span class="sidebar-normal"> Edit Profile </span>
                   </a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('admin.userManagment.create')}}">
+                    <span class="sidebar-mini"> ANU </span>
+                    <span class="sidebar-normal"> Add New User </span>
+                  </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span class="sidebar-mini"> EUP </span>
-                    <span class="sidebar-normal"> Edit User Profile </span>
+                  <a class="nav-link" href="{{route('admin.userManagment')}}">
+                    <span class="sidebar-mini"> EP </span>
+                    <span class="sidebar-normal"> User Management </span>
                   </a>
                 </li>
               </ul>
@@ -70,13 +76,14 @@
                   </a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="../examples/pages/Add patients.html">
+                  <a class="nav-link" href="{{route('admin.patientManagment.create')}}">
                     <span class="sidebar-mini"> AP </span>
                     <span class="sidebar-normal"> Add patients </span>
                   </a>
                 </li>
               </ul>
             </div>
+            
           </li>
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#analysisExamples">

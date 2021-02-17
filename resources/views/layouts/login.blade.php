@@ -88,11 +88,15 @@ The above copyright notice and this permission notice shall be included in all c
                         </span>
                       </div>
                       <input type="text" name ="username" class="form-control" placeholder="User Name...">
+                      <br>
+                         @error('username')
+                              <span class="text-danger">{{$message}} </span>
+                           @enderror
                     </div>
                   </span>
 
 
-                                <span class="bmd-form-group">
+                     <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
@@ -100,6 +104,10 @@ The above copyright notice and this permission notice shall be included in all c
                         </span>
                       </div>
                       <input type="password" name="password" class="form-control" placeholder="Password...">
+                     <br>
+                      @error('password')
+                              <span class="text-danger">{{$message}} </span>
+                           @enderror
                     </div>
                   </span>
                             </div>

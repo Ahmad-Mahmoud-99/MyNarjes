@@ -1,5 +1,5 @@
-<footer class="footer">
-        <div class="container-fluid">
+<footer class="footer" style=" width: 100%;">
+        <div class="container-fluid" style="padding-right: 15px;">
           
           <div class="copyright float-right">
             &copy;

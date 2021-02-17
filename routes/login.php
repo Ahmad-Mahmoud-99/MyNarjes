@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 Auth::routes();
 
-Route::group(['prefix'=>'user','namespace'=>'users'],function(){
+Route::group(['prefix'=>'user','namespace'=>'login'],function(){
 Route::get('login', 'LoginController@getLogin')->name('get.user.login');
 Route::post('login', 'LoginController@Login')->name('user.login');
 });
