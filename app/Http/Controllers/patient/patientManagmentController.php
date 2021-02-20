@@ -68,7 +68,6 @@
         
             return redirect()->route('admin.patientManagment')->with(['success'=>'تم الحفظ بنجاح']);
             }catch(\Exception $ex){
-                return $ex;
                 return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
             }
     }

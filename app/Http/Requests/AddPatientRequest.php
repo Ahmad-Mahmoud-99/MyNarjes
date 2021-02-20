@@ -30,15 +30,17 @@ class AddPatientRequest extends FormRequest
             'birthday'=>'required',
             'gender'=>'required',
             'age'=>'required|numeric',
-            'email'=>'email',
+            'email'=>'email|nullable',
             'address'=>'required',
-            'phone'=>'min:10|max:14',
+            'phone'=>'min:10|max:14|nullable',
 
         ];
     }
     public function messages()
     {
         return [
+            
+           'email'=>'يجب اخال الايميل بالصورة الصحيحة',
             'f_name.required'=>'هذا الحقل مطلوب ',
             'm_name.required'=>'هذا الحقل مطلوب ',
             'l_name.required'=>'هذا الحقل مطلوب ',

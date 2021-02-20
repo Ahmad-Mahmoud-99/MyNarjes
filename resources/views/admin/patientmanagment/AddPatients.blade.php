@@ -1,6 +1,28 @@
 @extends('layouts.admin')
 @section('title','Add Patient')
 @section('dash','Add New Patient')
+@section('style')
+<style>
+    .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  border-radius: 1px;
+  border:1px solid black;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tool:hover .tooltiptext {
+  visibility: visible;
+}
+  </style>
+
+@endsection
 @section('content')
 <div class="row" >
             <div class="col-md-8" style="margin: auto;">
@@ -23,7 +45,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">First Name</label>
-                          <input type="text" class="form-control"  name="f_name" >
+                          <input type="text" class="form-control"  name="f_name" value="{{old('f_name')}}">
                           @error('f_name')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
@@ -32,7 +54,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Middle Name</label>
-                          <input type="text" class="form-control" name="m_name"   >
+                          <input type="text" class="form-control" name="m_name" value="{{old('m_name')}}"  >
                         
                           @error('m_name')
                               <span class="text-danger">{{$message}} </span>
@@ -42,7 +64,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control" name="l_name"  >
+                          <input type="text" class="form-control" name="l_name" value="{{old('l_name')}}" >
                           @error('l_name')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
@@ -53,21 +75,29 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                        <select name="gender" class="selectpicker" data-background-color="rose" data-style="select-with-transition" data-size="7">
+                           <select name="gender"  class="selectpicker" data-background-color="rose" data-style="select-with-transition" data-size="7">
                             <option disabled selected value="gender">gender</option>
-                            <option value="male">Male </option>
-                            <option value="female">Female</option>
+                            @if (old('gender') == 'male')
+                              <option value="male" selected>Male</option>
+                            @else
+                             <option value="male">Male</option>
+                            @endif            
+                            @if (old('gender') == 'female')
+                              <option value="female" selected>Female</option>
+                            @else
+                             <option value="female">Female</option>
+                            @endif       
                           </select>
-
+                          <br>
                           @error('gender')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
-                        </div>
-                      </div>
+                 </div>
+                  </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Age</label>
-                          <input type="text" class="form-control"  name="age"  >
+                          <input type="text" class="form-control" value="{{old('age')}}" name="age"  >
                           @error('age')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
@@ -76,11 +106,11 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                        <!-- <label class="bmd-label-floating">Birthday</label> -->
-                        <input type="date" class="form-control"  name="birthday">
+                        <input type="date" class="form-control"  value="{{old('birthday')}}" name="birthday">
                         @error('birthday')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
+                           <span class="tooltiptext"> Birthday Date </span>
                         </div>
                       </div>
 
@@ -91,7 +121,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating"> Address</label>
-                          <input type="text" class="form-control"  name="address"  >
+                          <input type="text" class="form-control"  name="address" value="{{old('address')}}" >
                           @error('address')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
@@ -100,7 +130,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone</label>
-                          <input type="text" class="form-control"  name="phone"  >
+                          <input type="text" class="form-control"  name="phone"  value="{{old('phone')}}">
                           @error('phone')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
@@ -109,15 +139,16 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input type="email" class="form-control" name="email"  >
+                          <input type="email" class="form-control" name="email"  value="{{old('email')}}">
                           @error('email')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
                         </div>
                       </div>
                     </div>
-                   <br><br>
-                    <button type="submit" class="btn btn-rose " style="width:30% ">Add</button>
+                   <br>
+                   <br>
+                      <button type="submit" class="btn btn-rose " style="width:30% ">Add</button>
                     <div class="clearfix">
                       </div>
                   </form>

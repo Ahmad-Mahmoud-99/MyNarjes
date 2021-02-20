@@ -28,6 +28,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="{{asset('assets/css/material-dashboard.css?v=2.2.2')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
+    @yield('style')
 </head>
 
 <body class="">
@@ -168,15 +169,13 @@ The above copyright notice and this permission notice shall be included in all c
         <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
         <script src="{{asset('assets/js/plugins/fullcalendar.min.js')}}"></script>
         <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-        <script src="{{asset('assets/js/plugins/jquery-jvectormap.js')}}"></script>
+        <!-- <script src="{{asset('assets/js/plugins/jquery-jvectormap.js')}}"></script> -->
         <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
         <script src="{{asset('assets/js/plugins/nouislider.min.js')}}"></script>
         <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
         <!-- Library for adding dinamically elements -->
         <script src="{{asset('assets/js/plugins/arrive.min.js')}}"></script>
-        <!--  Google Maps Plugin    -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         <!-- Chartist JS -->
         <script src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>
         <!--  Notifications Plugin    -->

@@ -24,14 +24,15 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'password'=>'required',
+            'username'=>'required',
         ];
     }
 
     public function messages()
     {
         return [
-            //
+        'required'=>'هذا الحقل مطلوب'
         ];
     }   
 }
