@@ -28,6 +28,25 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../../assets/css/material-dashboard.css?v=2.2.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+    .tooltiptext {
+  visibility: hidden;
+  width: 60px;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  border-radius: 1px;
+  border:1px solid black;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tool:hover .tooltiptext {
+  visibility: visible;
+}
+  </style>
 </head>
 
 <body class="">
@@ -374,9 +393,15 @@ Patient's Friends Association
                     <br><br>
                     <div class="row">
                       <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Gender</label>
-                          <input type="text" class="form-control">
+                        <div class="form-group" >
+                        
+                         
+                          <select class="selectpicker"  data-style="select-with-transition" data-size="7">
+                            <option disabled selected> Gender</option>
+                            <option value="male">Male </option>
+                            <option value="female">Female</option>
+                           
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -387,9 +412,9 @@ Patient's Friends Association
                       </div>
 
                       <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group" >
                          
-                          <input type="Date" class="form-control">
+                       <div class="tool"> <input type="Date" class="form-control"><span class="tooltiptext">Birthday</span> </div>
                         </div>
                       </div>
                     </div>
