@@ -30,12 +30,12 @@ class userController extends Controller
         return view('admin.userManagment.myprofile',compact(['user','role_name']));
     }
     public function create(){
-        return view('admin.userManagment.register');
+        return view('admin.userManagment.addNewUser');
 
     }
     public function store(AddNewUserRequest $request){
-        try{
-          
+        try{           
+
             // if($request->role=='admin'){
             //     $role_id=1;
             //  }else 
@@ -51,7 +51,7 @@ class userController extends Controller
                 $role_id=3;  
              }
             
-             $user=Users::create(
+              Users::create(
                [
                    'role_id'=>$role_id,
                    'f_name'=>$request->f_name,
@@ -66,6 +66,7 @@ class userController extends Controller
                    'password'=> bcrypt($request->password),
                ]
            );
+           
              return redirect()->route('admin.userManagment')->with(['success'=>'تم الحفظ بنجاح']);
            }catch(\Exception $ex){
                
@@ -74,9 +75,20 @@ class userController extends Controller
     }
     public function userManagment(){
         $user=Users::selection()->paginate(PAGINATION_COUNT);
-        return view('admin.userManagment.usermanagment', compact("user"));
+        return view('admin.userManagment.usermanagment', compact('user'));
     }
-    public function rdit(){
-
+    public function edit($user_id){
+        try{
+            $user=Users::where('id',$user_id)->selection()->first();
+             if(!$user){
+                 return redirect()->route('admin.userManagment')->with(['error'=>'هذاالمريض غير موجود']);
+             }
+             return view('admin.userManagment.editUserProfile',compact('user'));
+          }catch(\Exception $ex){
+             return redirect()->back()->with(['error'=>'هناك خطأ مل يرجى المحاولة فيما بعد']);
+           }
+    }
+    public function update(){
+        
     }
 }

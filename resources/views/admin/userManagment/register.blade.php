@@ -25,7 +25,7 @@
                               <span class="text-danger">{{$message}} </span>
                            @enderror
                         </div>
-                      </div>
+                    </div>
                       <div class="form-group has-default">
                         <div class="input-group">
                           <div class="input-group-prepend">
@@ -78,8 +78,8 @@
                               <span class="text-danger">{{$message}} </span>
                            @enderror
                         </div>
-               </div>
-               <div class="form-group has-default">
+                    </div>
+                   <div class="form-group has-default">
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text">
@@ -93,7 +93,7 @@
                         </div>
                       </div>   
                      
-                  </div>
+                   </div>
                
                   <div class="col-md-5 mr-auto" style="margin-right: 0%;">
                       <div class="form-group has-default">
@@ -152,8 +152,8 @@
                         
                       </div>
                       
-                 <div class="form-group has-default">
-                      <div class="input-group">
+                      <div class="form-group has-default">
+                       <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text">
                               <i class="material-icons">face</i>
@@ -162,17 +162,17 @@
                           <!-- class="selectpicker"  -->
                           <select  name="role_name"  data-background-color="rose" data-style="select-with-transition" data-size="7">
                             <option disabled selected value="role">role</option>
-                            @if (old('manager') == 'manager')
+                            @if (old('role_name') == 'manager')
                               <option value="manager" selected>Manager</option>
                             @else
                              <option value="manager">Manager</option>
                             @endif            
-                            @if (old('employee') == 'employee')
+                            @if (old('role_name') == 'employee')
                               <option value="employee" selected>Employee</option>
                             @else
                              <option value="employee">Employee</option>
                             @endif 
-                            @if (old('accountant') == 'accountant')
+                            @if (old('role_name') == 'accountant')
                               <option value="accountant" selected>Accountant</option>
                             @else
                              <option value="accountant">Accountant</option>
@@ -181,14 +181,16 @@
                           @error('role_name')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
+                       </div>
                      </div>
-</div>
                       <div class="text-center ">
                         <button type="submit" class="btn btn-primary btn-round mt-4 " >Create account</button>
                       </div>
+              </div>
                       <br>
                       <br>
                     </form>
+                    <br>
                   </div>
                 </div>
               </div>
