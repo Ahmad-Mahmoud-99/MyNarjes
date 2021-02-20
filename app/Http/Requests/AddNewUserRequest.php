@@ -31,11 +31,11 @@ class AddNewUserRequest extends FormRequest
             'start_date'=>'required',
             'role_name'=>'required',
             'age'=>'required|numeric',
-            'email'=>'required|email|nullable',//unique
+            'email'=>'required|email|unique:user,email,'.$this->id,
             'address'=>'required',
             'password'=>'required',
-            'username'=>'required',//unique
-            'phone'=>'required|min:10|max:14|nullable',//unique
+            'username'=>'required|unique:user,username,'.$this->id,
+            'phone'=>'required|digits_between:10,14|unique:user,phone,'.$this->id,
 
         ];
         
@@ -46,10 +46,14 @@ class AddNewUserRequest extends FormRequest
             
            'email'=>'يجب اخال الايميل بالصورة الصحيحة',
             'required'=>'هذا الحقل مطلوب ',
-             'phone.min'=>' رقم الجوال مكون من 10 منازل على الأقل',
-             'phone.max'=>'رقم الجوال مكون من 14 منازل على الأكثر',
+            //  'phone.min'=>' رقم الجوال مكون من 10 منازل على الأقل',
+            //  'phone.max'=>'رقم الجوال مكون من 14 منازل على الأكثر',
              'string'=>'يجب ادخال نص',
              'numeric'=>'يجب ادخال رقم',
+             'email.unique'=>'البريد الاكتروني مستخدم من قبل',
+             'phone.unique'=>' رقم الجوال مستخدم من قبل',
+             'username.unique'=>'اسم المستخدم مستخدم من قبل',
+             'phone.digits_between'=>'رقم الجوال مكون من 10 الى 14 رقم',
 
         ];
     }

@@ -24,7 +24,7 @@
                                 <th>First Name</th>
                                 <th>Middle Name</th>
                                 <th>Last Name</th>
-                                <th>Gender</th>
+                                <th>role_name</th>
                                 <th>Age</th>
                                 <th>Address</th>
                                 <th>Email</th>
@@ -43,7 +43,13 @@
                                         <td>{{$index->f_name}}</td>
                                         <td>{{$index->m_name}}</td>
                                         <td>{{$index->l_name}}</td>
-                                        <td>{{$index->gender}}</td>
+                                        @if($index->role_id==2)
+                                        <td>manager</td>
+                                        @elseif($index->role_id==3)
+                                        <td>employee</td>
+                                        @elseif($index->role_id==4)
+                                        <td>accountant</td>
+                                        @endif
                                         <td>{{$index->age}}</td>
                                         <td>{{$index->address}}</td>
                                         <td>{{$index->email}}</td>
@@ -52,7 +58,7 @@
                                         <td>{{$index->start_date}}</td>
                                         <td>{{$index->end_date}}</td>
                                         <td class="td-actions text-right">
-                                           <a href=""> 
+                                           <a href="{{route('admin.userManagment.edit',$index->id)}}"> 
                                               <button type="button" rel="tooltip" class="btn btn-success">
                                                 <i class="material-icons">edit</i>
                                               </button>
