@@ -18,7 +18,6 @@
                 <div class="card-body" >
                <form class="form" method="post" action="{{route('admin.patientManagment.update',$patient->patient_id)}}">
                    @csrf
-                    <!-- <input name="id" value="{{$patient->patient_id}}" name="patient[0][patient_id]"  type="hidden"> -->
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">

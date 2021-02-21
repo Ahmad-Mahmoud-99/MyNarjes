@@ -1,6 +1,28 @@
 @extends('layouts.admin')
 @section('title','Add Patient')
 @section('dash','Add New Patient')
+@section('style')
+<style>
+    .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  border-radius: 1px;
+  border:1px solid black;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tool:hover .tooltiptext {
+  visibility: visible;
+}
+  </style>
+
+@endsection
 @section('content')
 <div class="row" >
             <div class="col-md-8" style="margin: auto;">
@@ -84,11 +106,11 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                        <!-- <label class="bmd-label-floating">Birthday</label> -->
                         <input type="date" class="form-control"  value="{{old('birthday')}}" name="birthday">
                         @error('birthday')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
+                           <span class="tooltiptext"> Birthday Date </span>
                         </div>
                       </div>
 

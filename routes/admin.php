@@ -39,7 +39,7 @@ Route::group(['middleware'=>'auth:admin'],function(){
         Route::post('store','userController@store')->name('admin.userManagment.store');
         Route::get('/userManagment','userController@userManagment')->name('admin.userManagment');
         Route::get('edit/{id}','userController@edit')->name('admin.userManagment.edit');
-        // Route::post('update/{id}','patientManagmentController@update')->name('admin.patientManagment.update');//or put
+        Route::post('update/{id}','userController@update')->name('admin.userManagment.update');//or put
     });
     ########################end user###########################
 
