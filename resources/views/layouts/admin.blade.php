@@ -390,8 +390,8 @@ The above copyright notice and this permission notice shall be included in all c
 
             });
         </script>
+
     </div>
- </div>
 </body>
 
 </html>
