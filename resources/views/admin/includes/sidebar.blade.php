@@ -53,7 +53,7 @@
         </div>
         <ul class="nav">
           <li class="nav-item active ">
-            
+
             <a  class="nav-link" href="{{route('admin.dashboard')}}">
               <i class="material-icons">dashboard</i>
               <p> Dashboard </p>
@@ -83,7 +83,7 @@
                 </li>
               </ul>
             </div>
-            
+
           </li>
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#analysisExamples">
@@ -96,7 +96,7 @@
               <ul class="nav">
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{{route('admin.showAnalysis')}}">
                     <span class="sidebar-mini"> SA </span>
                     <span class="sidebar-normal"> Show Analysis </span>
                   </a>

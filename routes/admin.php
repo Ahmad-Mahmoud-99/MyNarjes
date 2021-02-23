@@ -32,6 +32,7 @@ Route::group(['middleware'=>'auth:admin'],function(){
         Route::post('update/{id}','patientManagmentController@update')->name('admin.patientManagment.update');//or put
     });
     ########################end patientmanagment###########################
+
     ####################user##############
     Route::group(['prefix'=>'userManagment', 'namespace'=>'user'],function(){
         Route::get('/','userController@index')->name('admin.myProfile');
@@ -42,6 +43,18 @@ Route::group(['middleware'=>'auth:admin'],function(){
         Route::post('update/{id}','userController@update')->name('admin.userManagment.update');//or put
     });
     ########################end user###########################
+
+    ####################analysis##############
+    Route::group(['prefix'=>'analysis', 'namespace'=>'analysis'],function(){
+        Route::get('/','analysisController@index')->name('admin.showAnalysis');
+//        Route::get('/filter/{id?}','analysisController@filter')->name('admin.tests.show');
+//        Route::get('create','analysisController@create')->name('admin.userManagment.create');
+//        Route::post('store','analysisController@store')->name('admin.userManagment.store');
+//        Route::get('/userManagment','analysisController@userManagment')->name('admin.userManagment');
+//        Route::get('edit/{id}','analysisController@edit')->name('admin.userManagment.edit');
+//        Route::post('update/{id}','analysisController@update')->name('admin.userManagment.update');//or put
+    });
+    ########################end analysis###########################
 
 });
 
