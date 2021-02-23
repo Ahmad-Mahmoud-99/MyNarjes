@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AddNewUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 
 class userController extends Controller
@@ -88,7 +89,52 @@ class userController extends Controller
              return redirect()->back()->with(['error'=>'هناك خطأ مل يرجى المحاولة فيما بعد']);
            }
     }
-    public function update(){
-        
+    public function update(UpdateUserRequest $request ,$user_id){
+        try{
+            // return "llllll";
+            $role_id=0;
+            if($request->role_name=='manager'){
+               $role_id=2;
+    
+            }else if($request->role_name=='accountant'){
+               $role_id=4;
+                
+            }else if($request->role_name=='employee'){
+               $role_id=3;  
+            }
+            if($request->has('password')){
+               Users::where('id',$user_id)
+               ->update(
+                  [
+                    "password"=>bcrypt($request["password"]),
+                  ]
+               );
+            }
+            if($request->status=='not active'){
+                $status=0;
+            }else{
+                $status=1;
+            }
+            Users::where('id',$user_id)
+           ->update(
+              [
+                'role_id'=>$role_id,
+                  "f_name"=>$request["f_name"],
+                  "m_name"=>$request["m_name"],
+                  "l_name"=>$request["l_name"],
+                  "age"=>$request["age"],
+                  "address"=>$request["address"],
+                  "phone"=>$request["phone"],
+                  "email"=>$request["email"],
+                  "username"=>$request["username"],
+                  "end_date"=>$request["end_date"],
+                  "status"=>$status,
+              ]
+           );
+           return redirect()->route('admin.userManagment')->with(['success'=>'تم الحفظ بنجاح']);
+        }catch(\Exception $ex){
+            return $ex;
+           return redirect()->back()->with(['error'=>'هناك خطأ مل يرجى المحاولة فيما بعد']);
+         }
     }
 }

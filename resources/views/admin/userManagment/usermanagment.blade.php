@@ -30,6 +30,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>username</th>
+                                <th>status</th>
                                 <th>start_date</th>
                                 <th>end_date</th>
                                 <th>Options</th>
@@ -43,7 +44,9 @@
                                         <td>{{$index->f_name}}</td>
                                         <td>{{$index->m_name}}</td>
                                         <td>{{$index->l_name}}</td>
-                                        @if($index->role_id==2)
+                                        @if($index->role_id==1)
+                                        <td>admin</td>
+                                        @elseif($index->role_id==2)
                                         <td>manager</td>
                                         @elseif($index->role_id==3)
                                         <td>employee</td>
@@ -55,6 +58,8 @@
                                         <td>{{$index->email}}</td>
                                         <td>{{$index->phone}}</td>
                                         <td>{{$index->username}}</td>
+                                        <td>{{$index->getActive()}}</td>
+
                                         <td>{{$index->start_date}}</td>
                                         <td>{{$index->end_date}}</td>
                                         <td class="td-actions text-right">

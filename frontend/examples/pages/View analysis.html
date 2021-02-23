@@ -28,25 +28,6 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../../assets/css/material-dashboard.css?v=2.2.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
-  <style>
-    .tooltiptext {
-  visibility: hidden;
-  width: 60px;
-  background-color: white;
-  color: #000;
-  text-align: center;
-  border-radius: 1px;
-  border:1px solid black;
-  padding: 5px 0;
-
-  position: absolute;
-  z-index: 1;
-}
-
-.tool:hover .tooltiptext {
-  visibility: visible;
-}
-  </style>
 </head>
 
 <body class="">
@@ -57,7 +38,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-     <div class="logo"><a href="#" data-color="rose" class="simple-text logo-normal" style="font-size: 16px; text-align: center; color:white ; font-weight: bold;text-transform: capitalize;" >
+      <div class="logo"><a href="#" data-color="rose" class="simple-text logo-normal" style="font-size: 16px; text-align: center; color:white ; font-weight: bold;text-transform: capitalize;" >
           
 Patient's Friends Association
         </a>
@@ -91,7 +72,7 @@ Patient's Friends Association
                 <li class="nav-item">
                   <a class="nav-link" href="Users Managment.html">
                     <span class="sidebar-mini"> UM </span>
-                    <span class="sidebar-normal"> Users managment</span>
+                    <span class="sidebar-normal"> Users Management </span>
                   </a>
                 </li>
               </ul>
@@ -147,7 +128,7 @@ Patient's Friends Association
               <ul class="nav">
                
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="View analysis.html">
                     <span class="sidebar-mini"> SA </span>
                     <span class="sidebar-normal"> Show Analysis </span>
                   </a>
@@ -157,12 +138,7 @@ Patient's Friends Association
                     <span class="sidebar-mini"> ANA </span>
                     <span class="sidebar-normal"> Add New Analysis</span>
                   </a>
-                </li>
-               
-              
-             
-               
-            
+                </li>            
               </ul>
             </div>
           </li>
@@ -202,14 +178,14 @@ Patient's Friends Association
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
+          <li class="nav-item active ">
+            <a class="nav-link" data-toggle="collapse" href="#tablesExamples" aria-expanded="true">
               <i class="material-icons">grid_on</i>
               <p> Tables
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse" id="tablesExamples">
+            <div class="collapse show" id="tablesExamples">
               <ul class="nav">
                 <li class="nav-item ">
                   <a class="nav-link" href="../../examples/tables/regular.html">
@@ -217,12 +193,7 @@ Patient's Friends Association
                     <span class="sidebar-normal"> Regular Tables </span>
                   </a>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/tables/extended.html">
-                    <span class="sidebar-mini"> ET </span>
-                    <span class="sidebar-normal"> Extended Tables </span>
-                  </a>
-                </li>
+               
                 <li class="nav-item ">
                   <a class="nav-link" href="../../examples/tables/datatables.net.html">
                     <span class="sidebar-mini"> DT </span>
@@ -295,7 +266,7 @@ Patient's Friends Association
                 <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Add New Patient</a>
+            <a class="navbar-brand" href="javascript:;">Show Analysis</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -304,15 +275,6 @@ Patient's Friends Association
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="javascript:;">
@@ -353,104 +315,113 @@ Patient's Friends Association
                 </div>
               </li>
             </ul>
+            
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="content"  >
-        <div class="container-fluid" >
-          <div class="row" >
-            <div class="col-md-8" style="margin: auto;">
-              <div class="card" style="width:120%; margin-left: -40px;">
-                <div class="card-header card-header-icon card-header-rose">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">person_add</i>
+                    <i class="material-icons">assignment</i>
                   </div>
-                  <h4 class="card-title">Add Patient </h4>
-                </div>
-                <div class="card-body" >
-                  <form>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">First Name</label>
-                          <input type="text" class="form-control">
-                        </div>
+                  <h4 class="card-title">Show Analysis</h4>
+                  <div class="col-lg-3 col-md-4 col-sm-2" style="margin-left: 75%;margin-right: 600px ;">
+                    <select class="selectpicker" data-style="select-with-transition" multiple title="Group Name" data-size="7">
+                      <option disabled> Multiple Options</option>
+                      <option value="2">BIOCHEMISTRY </option>
+                      <option value="3">SEROLOGY</option>
+                      <option value="4">HEAMTOLOGY</option>
+                      <option value="5">UNINE ANALYSIS</option>
+                      <option value="6">DIFFERENTIAL </option>
+                      <option value="7">STOOLANALYSIS</option>
+                      <option value="8">CULTURE </option>
+                      <option value="9">OTHERS</option>
+                    </select>
+                    <br>
+                    <form class="navbar-form">
+                      <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+                        <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
+                          <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
+                          <div class="ripple-container"></div>
+                        </button>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Middle Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <br><br>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group" >
-                        
-                         
-                          <select class="selectpicker"  data-style="select-with-transition" data-size="7">
-                            <option disabled selected> Gender</option>
-                            <option value="male">Male </option>
-                            <option value="female">Female</option>
-                           
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Age</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group" >
-                         
-                       <div class="tool"> <input type="Date" class="form-control"><span class="tooltiptext">Birthday</span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br><br>
-
+                    </form>
+                  </div>
                   
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating"> Address</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Phone</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                   <br><br>
-                    <button type="submit" class="btn btn-rose " style="margin-left: 250px; width: 30%; "   >Add</button>
-                    <div class="clearfix"></div> 
-                  </form>
+                </div>
+        
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr >
+                          <th class="text-center">#</th>
+                          <th >Analysis Name</th>
+                          <th>Price Analysis </th>
+                          <th>Group Name </th>
+                          <th>Parant Name </th>
+                          <th>Count</th>
+                          <th>Actions</th>
+                          </tr>
+                          <tr >
+                            <th class="text-center">#</th>
+                            <th >Analysis Name</th>
+                            <th>Price Analysis </th>
+                            <th>Group Name </th>
+                            <th>Parant Name </th>
+                            <th>Count</th>
+                            <th>Actions</th>
+                            </tr>
+                            <tr >
+                              <th class="text-center">#</th>
+                              <th >Analysis Name</th>
+                              <th>Price Analysis </th>
+                              <th>Group Name </th>
+                              <th>Parant Name </th>
+                              <th>Count</th>
+                              <th>Actions</th>
+                              </tr>
+                              <tr >
+                                <th class="text-center">#</th>
+                                <th >Analysis Name</th>
+                                <th>Price Analysis </th>
+                                <th>Group Name </th>
+                                <th>Parant Name </th>
+                                <th>Count</th>
+                                <th>Actions</th>
+                                </tr>
+                                <tr >
+                                  <th class="text-center">#</th>
+                                  <th >Analysis Name</th>
+                                  <th>Price Analysis </th>
+                                  <th>Group Name </th>
+                                  <th>Parant Name </th>
+                                  <th>Count</th>
+                                  <th>Actions</th>
+                                  </tr>
+                        
+
+                      </thead>
+                     
+
+                    </table>
+
+                  </div>
+             
                 </div>
               </div>
             </div>
-          </div>
+            
+           
         </div>
       </div>
+     
       <footer class="footer">
         <div class="container-fluid">
           
@@ -463,9 +434,11 @@ Patient's Friends Association
           </div>
         </div>
       </footer>
+      
     </div>
   </div>
-  <div class="fixed-plugin">
+  
+ <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
@@ -589,7 +562,7 @@ Patient's Friends Association
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
   <script src="../../assets/js/plugins/arrive.min.js"></script>
-
+  
   <!-- Chartist JS -->
   <script src="../../assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -793,11 +766,6 @@ Patient's Friends Association
 
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      md.checkFullPageBackgroundImage();
     });
   </script>
 </body>

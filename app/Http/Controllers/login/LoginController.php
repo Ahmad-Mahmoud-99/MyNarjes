@@ -19,8 +19,9 @@ class LoginController extends Controller
       $username=$request->input('username');
       $pass=$request->input('password');
        $user=Users::where('username',$username)->selection()->first();
-      $role_id=$user->role_id;
-       
+       if($user->status==1){
+
+        $role_id=$user->role_id;
         if($role_id==1){
             $permetion='admin';
         }else if($role_id==2){
@@ -36,7 +37,9 @@ class LoginController extends Controller
             return redirect()->route($permetion.'.dashboard')->with(['success'=>'تم الدخول بنجاح']);
         }
         return redirect()->back()->with(['error'=>'هناك خطأ في كلمة المرور']);
-
+    }else{
+        return redirect()->back()->with(['error'=>'هذا المستخدم غير موجود ']);
+    }
      }catch(\Exception $ex){
         return redirect()->back()->with(['error'=>'هناك خطأ في اسم المستخدم ']);
     }
