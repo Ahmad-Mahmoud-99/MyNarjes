@@ -28,7 +28,7 @@
         }
          public function update(UpdatePatientRequest $request,$patient_id){
             try{
-                
+
                Patient::where('patient_id',$patient_id)
               ->update(
                  [
@@ -65,11 +65,23 @@
                     'birthday'=>$request->birthday,
                 ]
             );
-        
+
             return redirect()->route('admin.patientManagment')->with(['success'=>'تم الحفظ بنجاح']);
             }catch(\Exception $ex){
                 return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
             }
     }
+
+        public function search(Request $request){
+            try{
+                $q=$request->name;
+                $patient=Patient::where('f_name','LIKE','%'.$q.'%')->orWhere('m_name','LIKE','%'.$q.'%')->orWhere('l_name','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
+                return view('admin.patientmanagment.PatientsManagment', compact("patient"));
+            }catch(\Exception $ex){
+                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
+            }
+        }
+
+
  }
-    
+

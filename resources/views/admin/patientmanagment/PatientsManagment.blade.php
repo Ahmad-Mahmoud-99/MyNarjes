@@ -11,6 +11,19 @@
                     </div>
                     <h4 class="card-title">Patients Managment</h4>
                 </div>
+                <div class="col-md-3">
+                    <form class="navbar-form" method="post" action="{{route('admin.patient.search')}}">
+                        @csrf
+                        <div class="input-group no-border">
+                            <input type="text" name="name" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+                            <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
+                                <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="card-body">
                 @include('alert.success')
                 @include('alert.errors')
@@ -46,7 +59,7 @@
                                         <td>{{$index->phone}}</td>
                                         <td>{{$index->birthday}}</td>
                                         <td class="td-actions text-right">
-                                           <a href="{{route('admin.patientManagment.edit',$index->patient_id)}}"> 
+                                           <a href="{{route('admin.patientManagment.edit',$index->patient_id)}}">
                                               <button type="button" rel="tooltip" class="btn btn-success">
                                                 <i class="material-icons">edit</i>
                                               </button>
@@ -66,7 +79,7 @@
                         </table>
 
                         <div class="d-flex justify-content-center"> {!! $patient->links() !!} </div>
-                        
+
                     </div>
                 </div>
             </div>

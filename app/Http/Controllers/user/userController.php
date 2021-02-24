@@ -24,9 +24,9 @@ class userController extends Controller
 
         }else if($user->role_id==3){
             $role_name='employee';
-            
+
         }else if($user->role_id==4){
-            $role_name='accountant';   
+            $role_name='accountant';
         }
         return view('admin.userManagment.myprofile',compact(['user','role_name']));
     }
@@ -35,23 +35,23 @@ class userController extends Controller
 
     }
     public function store(AddNewUserRequest $request){
-        try{           
+        try{
 
             // if($request->role=='admin'){
             //     $role_id=1;
-            //  }else 
+            //  }else
             // return $request->all();
             $role_id=0;
              if($request->role_name=='manager'){
                 $role_id=2;
-     
+
              }else if($request->role_name=='accountant'){
                 $role_id=4;
-                 
+
              }else if($request->role_name=='employee'){
-                $role_id=3;  
+                $role_id=3;
              }
-            
+
               Users::create(
                [
                    'role_id'=>$role_id,
@@ -67,10 +67,10 @@ class userController extends Controller
                    'password'=> bcrypt($request->password),
                ]
            );
-           
+
              return redirect()->route('admin.userManagment')->with(['success'=>'تم الحفظ بنجاح']);
            }catch(\Exception $ex){
-               
+
                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
            }
     }
@@ -95,12 +95,12 @@ class userController extends Controller
             $role_id=0;
             if($request->role_name=='manager'){
                $role_id=2;
-    
+
             }else if($request->role_name=='accountant'){
                $role_id=4;
-                
+
             }else if($request->role_name=='employee'){
-               $role_id=3;  
+               $role_id=3;
             }
             if($request->has('password')){
                Users::where('id',$user_id)
@@ -137,4 +137,25 @@ class userController extends Controller
            return redirect()->back()->with(['error'=>'هناك خطأ مل يرجى المحاولة فيما بعد']);
          }
     }
+
+    public function filter(Request $request){
+        if($request->role == 0){
+            $user=Users::selection()->paginate(PAGINATION_COUNT);
+        }else{
+            $user= Users::where('role_id', $request->role)->paginate(PAGINATION_COUNT);
+        }
+        return view('admin.userManagment.usermanagment', compact("user"));
+    }
+
+    public function search(Request $request){
+        try{
+            $q=$request->name;
+            $user=Users::where('f_name','LIKE','%'.$q.'%')->orWhere('m_name','LIKE','%'.$q.'%')->orWhere('l_name','LIKE','%'.$q.'%')->orWhere('username','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
+            return view('admin.userManagment.usermanagment', compact("user"));
+        }catch(\Exception $ex){
+            return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
+        }
+    }
+
+
 }

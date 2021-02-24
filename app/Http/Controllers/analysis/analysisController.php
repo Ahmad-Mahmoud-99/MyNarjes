@@ -14,7 +14,12 @@ class analysisController extends Controller
     }
 
     public function filter(Request $request){
-
+        if($request->group == 0){
+            $analysis=Analysis::selection()->paginate(PAGINATION_COUNT);
+        }else{
+            $analysis= Analysis::where('group_id', $request->group)->paginate(PAGINATION_COUNT);
+        }
+        return view('admin.analysis.viewAnalysis', compact("analysis"));
     }
     public function search(Request $request){
     try{
@@ -25,5 +30,7 @@ class analysisController extends Controller
         return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
     }
     }
+
+
 
 }

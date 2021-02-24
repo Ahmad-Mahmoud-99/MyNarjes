@@ -10,7 +10,9 @@
                   </div>
                   <h4 class="card-title">Show Analysis</h4>
                   <div class="col-lg-3 col-md-4 col-sm-2" style="margin-left: 75%;margin-right: 600px ;">
-                    <select class="selectpicker" data-style="select-with-transition" title="Group Name" data-size="7">
+                      <form class="navbar-form" method="post" action="{{route('admin.filter')}}">
+                          @csrf
+                    <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                       <option disabled>Group Analysis</option>
                         <option selected value="0">ALL ANALYSIS </option>
                       <option value="1">BIOCHEMISTRY </option>
@@ -22,6 +24,13 @@
                       <option value="7">CULTURE </option>
                       <option value="8">OTHERS</option>
                     </select>
+                          <button ype="submit" class="btn btn-rose " style="width:40% " >
+                              Filter
+                             <!-- <div class="ripple-container"></div> -->
+                          </button>
+                      </form>
+
+
                     <br>
                     <form class="navbar-form" method="post" action="{{route('admin.search')}}">
                      @csrf
@@ -43,23 +52,29 @@
                       <thead>
                         <tr >
                           <th class="text-center">ID</th>
-                          <th >Analysis Name</th>
-                          <th>Price Analysis </th>
-                          <th>Group Name </th>
-                          <th>Count</th>
-                          <th>Actions</th>
+                          <th class="text-center">Analysis Name</th>
+                          <th class="text-center">Price Analysis </th>
+                          <th class="text-center">Group Name </th>
+                          <th class="text-center">Count</th>
+                          <th class="text-center">Actions</th>
                           </tr>
                       </thead>
                         <tbody>
                         @isset($analysis)
                             @foreach($analysis as $test)
                                 <tr>
-                                    <td>{{$test->analysis_id}}</td>
-                                    <td>{{$test->analysis_name}}</td>
-                                    <td>{{$test->price}}</td>
-                                    <td>{{$test->group->group_name}}</td>
-                                    <td>{{$test->count}}</td>
-                                    <td></td>
+                                    <td class="text-center">{{$test->analysis_id}}</td>
+                                    <td class="text-center">{{$test->analysis_name}}</td>
+                                    <td class="text-center">{{$test->price}}</td>
+                                    <td class="text-center">{{$test->group->group_name}}</td>
+                                    <td class="text-center">{{$test->count}}</td>
+                                    <td class="td-actions text-center">
+                                        <a href="#">
+                                            <button type="button" rel="tooltip" class="btn btn-success">
+                                               view
+                                            </button>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         @endisset

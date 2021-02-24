@@ -40,7 +40,7 @@
                 <div class="card-body" >
                 <form class="form" method="post" action=" {{route('admin.patientManagment.store')}}">
                    @csrf
-                   <div>
+
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
@@ -55,7 +55,7 @@
                         <div class="form-group">
                           <label class="bmd-label-floating">Middle Name</label>
                           <input type="text" class="form-control" name="m_name" value="{{old('m_name')}}"  >
-                        
+
                           @error('m_name')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
@@ -81,19 +81,19 @@
                               <option value="male" selected>Male</option>
                             @else
                              <option value="male">Male</option>
-                            @endif            
+                            @endif
                             @if (old('gender') == 'female')
                               <option value="female" selected>Female</option>
                             @else
                              <option value="female">Female</option>
-                            @endif       
+                            @endif
                           </select>
                           <br>
                           @error('gender')
                               <span class="text-danger">{{$message}} </span>
                            @enderror
-                 </div>
-                  </div>
+                     </div>
+                      </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Age</label>
@@ -113,8 +113,6 @@
                            <span class="tooltiptext"> Birthday Date </span>
                         </div>
                       </div>
-
-
                     </div>
                     <br>
                     <div class="row">
@@ -150,7 +148,7 @@
                    <br>
                       <button type="submit" class="btn btn-rose " style="width:30% ">Add</button>
                     <div class="clearfix">
-                      </div>
+                    </div>
                   </form>
                 </div>
               </div>

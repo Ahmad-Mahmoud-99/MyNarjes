@@ -12,8 +12,35 @@
                   </div>
                   <h4 class="card-title">Users Management</h4>
                 </div>
+                  <div class="col-md-3">
+                      <form class="navbar-form" name="role" method="post" action="{{route('admin.user.filter')}}">
+                          @csrf
+                          <select class="selectpicker" name="role" data-style="select-with-transition" title="Role Name" data-size="7">
+                              <option disabled>Roles</option>
+                              <option selected value="0">ALL ROLES </option>
+                              <option value="1">ADMIN </option>
+                              <option value="2">MANAGER</option>
+                              <option value="3">EMPLOYEE</option>
+                              <option value="4">ACOUNTANT</option>
+                          </select>
+                          <button ype="submit" class="btn btn-rose " style="width:40% " >
+                              Filter
+                              <!-- <div class="ripple-container"></div> -->
+                          </button>
+                      </form>
+                      <form class="navbar-form" method="post" action="{{route('admin.user.search')}}">
+                          @csrf
+                          <div class="input-group no-border">
+                              <input type="text" name="name" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+                              <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
+                                  <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
+                                  <div class="ripple-container"></div>
+                              </button>
+                          </div>
+                      </form>
+                  </div>
                 <div class="card-body">
-                  
+
                 @include('alert.success')
                 @include('alert.errors')
                   <div class="table-responsive">
@@ -35,8 +62,8 @@
                                 <th>end_date</th>
                                 <th>Options</th>
                             </tr>
-                            </thead>
-                            <tbody>
+                        </thead>
+                        <tbody>
                             @isset($user)
                                 @foreach($user as $index)
                                     <tr>
@@ -63,17 +90,16 @@
                                         <td>{{$index->start_date}}</td>
                                         <td>{{$index->end_date}}</td>
                                         <td class="td-actions text-right">
-                                           <a href="{{route('admin.userManagment.edit',$index->id)}}"> 
+                                           <a href="{{route('admin.userManagment.edit',$index->id)}}">
                                               <button type="button" rel="tooltip" class="btn btn-success">
                                                 <i class="material-icons">edit</i>
                                               </button>
                                             </a>
                                         </td>
                                     </tr>
-
                                 @endforeach
                             @endisset
-                            </tbody>
+                        </tbody>
                     </table>
                     <div class="d-flex justify-content-center"> {!! $user->links() !!} </div>
          </div>
