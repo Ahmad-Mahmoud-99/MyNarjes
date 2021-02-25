@@ -10,7 +10,7 @@
                   </div>
                   <h4 class="card-title">Show Analysis</h4>
                   <div class="col-lg-3 col-md-4 col-sm-2" style="margin-left: 75%;margin-right: 600px ;">
-                      <form class="navbar-form" method="post" action="{{route('admin.filter')}}">
+                      <form class="navbar-form" method="get" action="{{route('admin.filter')}}">
                           @csrf
                     <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                       <option disabled>Group Analysis</option>
@@ -24,7 +24,7 @@
                       <option value="7">CULTURE </option>
                       <option value="8">OTHERS</option>
                     </select>
-                          <button ype="submit" class="btn btn-rose " style="width:40% " >
+                          <button type="submit" class="btn btn-rose " style="width:40% " >
                               Filter
                              <!-- <div class="ripple-container"></div> -->
                           </button>
@@ -32,10 +32,10 @@
 
 
                     <br>
-                    <form class="navbar-form" method="post" action="{{route('admin.search')}}">
+                    <form class="navbar-form" method="get" action="{{route('admin.search')}}">
                      @csrf
                       <div class="input-group no-border">
-                        <input type="text" name="name" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Search..." style="margin-top: 6px;">
                         <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
                           <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
                           <div class="ripple-container"></div>
@@ -81,6 +81,7 @@
                         </tbody>
 
                     </table>
+                    <div class="d-flex justify-content-center"> {!! $analysis->links() !!} </div>
 
                   </div>
 

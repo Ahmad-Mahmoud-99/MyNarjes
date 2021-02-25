@@ -36,11 +36,6 @@ class userController extends Controller
     }
     public function store(AddNewUserRequest $request){
         try{
-
-            // if($request->role=='admin'){
-            //     $role_id=1;
-            //  }else
-            // return $request->all();
             $role_id=0;
              if($request->role_name=='manager'){
                 $role_id=2;
@@ -91,7 +86,6 @@ class userController extends Controller
     }
     public function update(UpdateUserRequest $request ,$user_id){
         try{
-            // return "llllll";
             $role_id=0;
             if($request->role_name=='manager'){
                $role_id=2;
@@ -143,6 +137,9 @@ class userController extends Controller
             $user=Users::selection()->paginate(PAGINATION_COUNT);
         }else{
             $user= Users::where('role_id', $request->role)->paginate(PAGINATION_COUNT);
+            $pagination = $user->appends (array (
+                'role' => $request->role,
+        ) );
         }
         return view('admin.userManagment.usermanagment', compact("user"));
     }
@@ -151,6 +148,9 @@ class userController extends Controller
         try{
             $q=$request->name;
             $user=Users::where('f_name','LIKE','%'.$q.'%')->orWhere('m_name','LIKE','%'.$q.'%')->orWhere('l_name','LIKE','%'.$q.'%')->orWhere('username','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
+            $pagination = $user->appends (array (
+                'name' => $request->name,
+        ) );
             return view('admin.userManagment.usermanagment', compact("user"));
         }catch(\Exception $ex){
             return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);

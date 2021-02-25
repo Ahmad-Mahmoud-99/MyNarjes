@@ -12,10 +12,10 @@
                     <h4 class="card-title">Patients Managment</h4>
                 </div>
                 <div class="col-md-3">
-                    <form class="navbar-form" method="post" action="{{route('admin.patient.search')}}">
+                    <form class="navbar-form" method="get" action="{{route('admin.patient.search')}}">
                         @csrf
                         <div class="input-group no-border">
-                            <input type="text" name="name" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Search..." style="margin-top: 6px;">
                             <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
                                 <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
                                 <div class="ripple-container"></div>

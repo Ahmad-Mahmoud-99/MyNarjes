@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Models\Analysis;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +16,17 @@ use App\Models\Analysis;
 // Route::get('/admin', function () {
 //     return view('admin.dashboard');
 // });
-define('PAGINATION_COUNT',5);
 
+if (!defined('PAGINATION_COUNT')) {
+   define('PAGINATION_COUNT',5);
+}
 Auth::routes();
 Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('/admin','Admin\DashboardController@index')->name('admin.dashboard');
     ####################patientmanagment##############
     Route::group(['prefix'=>'patientManagment', 'namespace'=>'patient'],function(){
         Route::get('/','patientManagmentController@index')->name('admin.patientManagment');
-        Route::post('/search','patientManagmentController@search')->name('admin.patient.search');
+        Route::get('/search','patientManagmentController@search')->name('admin.patient.search');
         Route::get('create','patientManagmentController@create')->name('admin.patientManagment.create');
         Route::post('store','patientManagmentController@store')->name('admin.patientManagment.store');
 
@@ -39,8 +40,8 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::group(['prefix'=>'userManagment', 'namespace'=>'user'],function(){
         Route::get('/','userController@index')->name('admin.myProfile');
         Route::get('create','userController@create')->name('admin.userManagment.create');
-        Route::post('/search','userController@search')->name('admin.user.search');
-        Route::post('/filter', 'userController@filter')->name('admin.user.filter');
+        Route::get('/search','userController@search')->name('admin.user.search');
+        Route::get('/filter', 'userController@filter')->name('admin.user.filter');
         Route::post('store','userController@store')->name('admin.userManagment.store');
         Route::get('/userManagment','userController@userManagment')->name('admin.userManagment');
         Route::get('edit/{id}','userController@edit')->name('admin.userManagment.edit');
@@ -52,9 +53,8 @@ Route::group(['middleware'=>'auth:admin'],function(){
     ####################analysis##############
     Route::group(['prefix'=>'analysis', 'namespace'=>'analysis'],function(){
         Route::get('/','analysisController@index')->name('admin.showAnalysis');
-        Route::post('/search','analysisController@search')->name('admin.search');
-
-         Route::post('/fiter', 'analysisController@filter')->name('admin.filter');
+        Route::get('/search','analysisController@search')->name('admin.search');
+        Route::get('/fiter', 'analysisController@filter')->name('admin.filter');
 //        Route::get('create','analysisController@create')->name('admin.userManagment.create');
 //        Route::post('store','analysisController@store')->name('admin.userManagment.store');
 //        Route::get('/userManagment','analysisController@userManagment')->name('admin.userManagment');

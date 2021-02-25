@@ -14,7 +14,6 @@
             $patient=Patient::selection()->paginate(PAGINATION_COUNT);
             return view('admin.patientmanagment.PatientsManagment', compact("patient"));
         }
-
         public function edit($patient_id){
          try{
            $patient=Patient::where('patient_id',$patient_id)->selection()->first();
@@ -28,7 +27,7 @@
         }
          public function update(UpdatePatientRequest $request,$patient_id){
             try{
-
+                
                Patient::where('patient_id',$patient_id)
               ->update(
                  [
@@ -43,7 +42,7 @@
               );
              return redirect()->route('admin.patientManagment')->with(['success'=>'تم التعديل بنجاح']);
               }catch(\Exception $ex){
-                  return $ex;
+                //   return $ex;
               return redirect()->back()->with(['error'=>'هناك خطأ مل يرجى المحاولة فيما بعد']);
             }
     }
@@ -65,23 +64,24 @@
                     'birthday'=>$request->birthday,
                 ]
             );
-
+        
             return redirect()->route('admin.patientManagment')->with(['success'=>'تم الحفظ بنجاح']);
             }catch(\Exception $ex){
                 return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
             }
     }
-
-        public function search(Request $request){
-            try{
-                $q=$request->name;
-                $patient=Patient::where('f_name','LIKE','%'.$q.'%')->orWhere('m_name','LIKE','%'.$q.'%')->orWhere('l_name','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
-                return view('admin.patientmanagment.PatientsManagment', compact("patient"));
-            }catch(\Exception $ex){
-                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
-            }
+    public function search(Request $request){
+        try{
+            $q=$request->name;
+            $patient=Patient::where('f_name','LIKE','%'.$q.'%')->orWhere('m_name','LIKE','%'.$q.'%')->orWhere('l_name','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
+            $pagination = $patient->appends ( array (
+                'name' => $request->name,
+        ) );
+            return view('admin.patientmanagment.PatientsManagment', compact("patient"));
+        }catch(\Exception $ex){
+            return $ex;
+            return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
         }
-
-
+    }
  }
-
+    
