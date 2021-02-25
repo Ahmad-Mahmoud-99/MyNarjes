@@ -147,7 +147,17 @@ class userController extends Controller
     public function search(Request $request){
         try{
             $q=$request->name;
-            $user=Users::where('f_name','LIKE','%'.$q.'%')->orWhere('m_name','LIKE','%'.$q.'%')->orWhere('l_name','LIKE','%'.$q.'%')->orWhere('username','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
+            $user=Users::where('f_name','LIKE','%'.$q.'%')
+            ->orWhere('m_name','LIKE','%'.$q.'%')
+            ->orWhere('l_name','LIKE','%'.$q.'%')
+            ->orWhere('username','LIKE','%'.$q.'%')
+            ->orWhere('age','LIKE','%'.$q.'%')
+            ->orWhere('address','LIKE','%'.$q.'%')
+            // ->orWhere('role_name','LIKE','%'.$q.'%')
+            ->orWhere('email','LIKE','%'.$q.'%')
+            ->orWhere('phone','LIKE','%'.$q.'%')
+            ->orWhere('status','LIKE','%'.$q.'%')
+            ->paginate(PAGINATION_COUNT);
             $pagination = $user->appends (array (
                 'name' => $request->name,
         ) );
