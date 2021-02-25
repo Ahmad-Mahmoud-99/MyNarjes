@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-class Role extends Authenticatable
-
+class Doctor extends Authenticatable
 {
     //
-    protected  $table='role';
+    protected  $table='doctor';
     protected $fillable = [
-        	'role_id',	'role_name',
+
+
+        'name', 'address' ,'phone', 'email',
 
     ];
 
@@ -24,10 +25,14 @@ class Role extends Authenticatable
     ];
 
      public function scopeSelection($query){
-         return $query->select('role_id', 'role_name');
+         return $query->select('doctor_id','name', 'address' ,'phone', 'email');
      }
-     public function user(){
-        return $this->hasMany('App\Models\Users', 'role_name', 'role_name');
+
+     public function analysis_requierd(){
+         return $this->hasMany('App\Models\Analysis_requierd', 'doctor_id', 'doctor_id');
      }
+
+
+
 
     }

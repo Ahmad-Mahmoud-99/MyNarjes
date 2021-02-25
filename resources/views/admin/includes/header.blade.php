@@ -52,7 +52,7 @@
                   <a class="dropdown-item" href="{{route('admin.myProfile')}}">Profile</a>
                   <a class="dropdown-item" href="{{route('admin.userManagment')}}">Settings</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{route('get.user.login')}}">Log out</a>
+                  <a class="dropdown-item" href="{{route('admin.logout')}}">Log out</a>
                 </div>
               </li>
             </ul>

@@ -21,15 +21,16 @@ if (!defined('PAGINATION_COUNT')) {
    define('PAGINATION_COUNT',5);
 }
 Auth::routes();
-Route::group(['middleware'=>'auth:admin'],function(){
-    Route::get('/admin','Admin\DashboardController@index')->name('admin.dashboard');
+Route::group(['prefix'=>'admin','middleware'=>['auth:admin','prevent-back-history']],function(){
+    Route::get('/','Admin\DashboardController@index')->name('admin.dashboard');
+    Route::get('/logout','Admin\DashboardController@logout')->name('admin.logout');
     ####################patientmanagment##############
     Route::group(['prefix'=>'patientManagment', 'namespace'=>'patient'],function(){
         Route::get('/','patientManagmentController@index')->name('admin.patientManagment');
         Route::get('/search','patientManagmentController@search')->name('admin.patient.search');
         Route::get('create','patientManagmentController@create')->name('admin.patientManagment.create');
         Route::post('store','patientManagmentController@store')->name('admin.patientManagment.store');
-
+        Route::get('/history/{id}','patientManagmentController@history')->name('admin.patientManagment.history');
 
         Route::get('edit/{id}','patientManagmentController@edit')->name('admin.patientManagment.edit');
         Route::post('update/{id}','patientManagmentController@update')->name('admin.patientManagment.update');//or put

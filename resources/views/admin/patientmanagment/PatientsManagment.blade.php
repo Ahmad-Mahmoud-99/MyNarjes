@@ -64,9 +64,11 @@
                                                 <i class="material-icons">edit</i>
                                               </button>
                                             </a>
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">history</i>
-                                            </button>
+                                            <a href="{{route('admin.patientManagment.history',$index->patient_id)}}">
+                                                <button type="button" rel="tooltip" class="btn btn-danger">
+                                                    <i class="material-icons">history</i>
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
 

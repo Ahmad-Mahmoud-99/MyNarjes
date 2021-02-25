@@ -29,4 +29,11 @@ class Analysis extends Authenticatable
      public function group(){
          return $this->belongsTo('App\Models\Group', 'group_id', 'group_id');
      }
+
+    public function analysis_requierd(){
+        return $this->belongsTo('App\Models\Analysis_requierd', 'analysis_id', 'analysis_id');
+    }
+
+
+
     }

@@ -11,5 +11,13 @@ class DashboardController extends Controller
     public function index(){
         return view('admin.dashboard');
     }
-    
+
+    public function logout () {
+        //logout user
+        auth()->logout();
+        // redirect to homepage
+        return redirect()->route('get.user.login');
+    }
+
+
 }

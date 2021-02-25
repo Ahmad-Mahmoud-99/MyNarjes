@@ -1,6 +1,7 @@
 <?php
 
     namespace App\Http\Controllers\patient;
+    use App\Models\Analysis_requierd;
     use App\Models\Patient;
 
     use App\Http\Controllers\Controller;
@@ -27,7 +28,7 @@
         }
          public function update(UpdatePatientRequest $request,$patient_id){
             try{
-                
+
                Patient::where('patient_id',$patient_id)
               ->update(
                  [
@@ -64,7 +65,7 @@
                     'birthday'=>$request->birthday,
                 ]
             );
-        
+
             return redirect()->route('admin.patientManagment')->with(['success'=>'تم الحفظ بنجاح']);
             }catch(\Exception $ex){
                 return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
@@ -83,5 +84,13 @@
             return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
         }
     }
+
+    public function history($id){
+       $analysis = Analysis_requierd::where('patient_id', $id)->with('doctor','analysis')->get();
+
+        return view('admin.patientmanagment.patientHistory' ,compact("analysis"));
+    }
+
+
  }
-    
+
