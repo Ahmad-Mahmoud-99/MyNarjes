@@ -23,9 +23,10 @@
                       <option value="8">OTHERS</option>
                     </select>
                     <br>
-                    <form class="navbar-form" method="get">
+                    <form class="navbar-form" method="post" action="{{route('admin.search')}}">
+                     @csrf
                       <div class="input-group no-border">
-                        <input type="text" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+                        <input type="text" name="name" value="" class="form-control" placeholder="Search..." style="margin-top: 6px;">
                         <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
                           <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
                           <div class="ripple-container"></div>

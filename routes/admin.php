@@ -44,9 +44,12 @@ Route::group(['middleware'=>'auth:admin'],function(){
     });
     ########################end user###########################
 
+
     ####################analysis##############
     Route::group(['prefix'=>'analysis', 'namespace'=>'analysis'],function(){
         Route::get('/','analysisController@index')->name('admin.showAnalysis');
+        Route::post('/search','analysisController@search')->name('admin.search');
+
 //        Route::get('/filter/{id?}','analysisController@filter')->name('admin.tests.show');
 //        Route::get('create','analysisController@create')->name('admin.userManagment.create');
 //        Route::post('store','analysisController@store')->name('admin.userManagment.store');

@@ -14,7 +14,16 @@ class analysisController extends Controller
     }
 
     public function filter(Request $request){
-       // return $request->all();
+
+    }
+    public function search(Request $request){
+    try{
+       $q=$request->name;
+       $analysis=Analysis::where('analysis_name','LIKE','%'.$q.'%')->orWhere('price','LIKE','%'.$q.'%')->paginate(PAGINATION_COUNT);
+       return view('admin.analysis.viewAnalysis', compact("analysis"));
+    }catch(\Exception $ex){
+        return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
+    }
     }
 
 }

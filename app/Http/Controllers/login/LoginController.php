@@ -18,6 +18,7 @@ class LoginController extends Controller
     // $remember_me=$request->has('remember_me')?'true':'false';
       $username=$request->input('username');
       $pass=$request->input('password');
+      
        $user=Users::where('username',$username)->selection()->first();
        if($user->status==1){
 
