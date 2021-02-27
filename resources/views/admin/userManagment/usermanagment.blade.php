@@ -11,11 +11,16 @@
                     <i class="material-icons">manage_accounts</i>
                   </div>
                   <h4 class="card-title">Users Management</h4>
+                  <br>
                 </div>
-                  <div class="col-md-3">
-                      <form class="navbar-form" name="role" method="get" action="{{route('admin.user.filter')}}">
+                  <div class="col-md-12">
+
+                  <div class="row">
+
+                      <form class="navbar-form  col-lg-8" name="role" method="get" action="{{route('admin.user.filter')}}">
                           @csrf
-                          <select class="selectpicker" name="role" data-style="select-with-transition" title="Role Name" data-size="7">
+                          <div class="row" style="padding-right:60px;">
+                          <select class="selectpicker col-lg-4" name="role" data-style="select-with-transition" title="Role Name" data-size="7">
                               <option disabled>Roles</option>
                               <option selected value="0">ALL ROLES </option>
                               <option value="1">ADMIN </option>
@@ -23,21 +28,23 @@
                               <option value="3">EMPLOYEE</option>
                               <option value="4">ACOUNTANT</option>
                           </select>
-                          <button ype="submit" class="btn btn-rose " style="width:40% " >
+                          <button ype="submit" class="btn btn-rose" style="padding:10px;" >
                               Filter
                               <!-- <div class="ripple-container"></div> -->
                           </button>
+</div>
                       </form>
-                      <form class="navbar-form" method="get" action="{{route('admin.user.search')}}">
+                      <form class="navbar-form col-lg-4" method="get" action="{{route('admin.user.search')}}">
                           @csrf
                           <div class="input-group no-border">
                               <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Search..." style="margin-top: 6px;">
                               <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
-                                  <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
+                                  <i class="material-icons"  style="padding-top: 1px;padding-left: 1px;">search</i>
                                   <div class="ripple-container"></div>
                               </button>
                           </div>
                       </form>
+</div>
                   </div>
                 <div class="card-body">
 

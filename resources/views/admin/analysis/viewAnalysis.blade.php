@@ -9,9 +9,14 @@
                     <i class="material-icons">assignment</i>
                   </div>
                   <h4 class="card-title">Show Analysis</h4>
-                  <div class="col-lg-3 col-md-4 col-sm-2" style="margin-left: 75%;margin-right: 600px ;">
-                      <form class="navbar-form" method="get" action="{{route('admin.filter')}}">
+                  <br>
+                  <div class="col-lg-12 col-md-4 col-sm-2" >
+                     <div class="row"> 
+                  <form class="navbar-form col-lg-8" method="get" action="{{route('admin.filter')}}">
                           @csrf
+                          <div class="row" style="padding-right:60px;">
+
+                    <div class="col-lg-4">    
                     <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                       <option disabled>Group Analysis</option>
                         <option selected value="0">ALL ANALYSIS </option>
@@ -24,17 +29,22 @@
                       <option value="7">CULTURE </option>
                       <option value="8">OTHERS</option>
                     </select>
-                          <button type="submit" class="btn btn-rose " style="width:40% " >
+</div>
+                    <div class="col-lg-4">
+                          <button type="submit" class="btn btn-rose " style="padding:10px">
                               Filter
                              <!-- <div class="ripple-container"></div> -->
                           </button>
+                        
+</div>
+</div>
                       </form>
 
 
                     <br>
-                    <form class="navbar-form" method="get" action="{{route('admin.search')}}">
+                    <form class="navbar-form col-lg-4" method="get" action="{{route('admin.search')}}">
                      @csrf
-                      <div class="input-group no-border">
+                      <div class="input-group no-border ">
                         <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Search..." style="margin-top: 6px;">
                         <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
                           <i class="material-icons" style="padding-top: 4px;padding-left: 8px;">search</i>
@@ -43,7 +53,7 @@
                       </div>
                     </form>
                   </div>
-
+</div>
                 </div>
 
                 <div class="card-body">
