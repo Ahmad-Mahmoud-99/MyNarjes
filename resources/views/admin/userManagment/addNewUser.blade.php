@@ -35,7 +35,7 @@
                 </div>
                 <div class="card-body" >
                   <form class="form" method="post" action="{{route('admin.userManagment.store')}}">
-                  @csrf 
+                  @csrf
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
@@ -103,17 +103,17 @@
                               <option value="manager" selected>Manager</option>
                             @else
                              <option value="manager">Manager</option>
-                            @endif            
+                            @endif
                             @if (old('role_name') == 'employee')
                               <option value="employee" selected>Employee</option>
                             @else
                              <option value="employee">Employee</option>
-                            @endif 
+                            @endif
                             @if (old('role_name') == 'accountant')
                               <option value="accountant" selected>Accountant</option>
                             @else
                              <option value="accountant">Accountant</option>
-                            @endif          
+                            @endif
                           </select>
                           <br>
                           @error('role_name')
@@ -153,7 +153,7 @@
                       <div class="col-md-4">
                         <div class="form-group" >
                          <div class="tool">
-                         
+
                          <input  type="date" class="form-control" name="start_date"value="{{old('start_date')}}" >
                           @error('start_date')
                               <span class="text-danger">{{$message}} </span>
@@ -165,11 +165,11 @@
                     <br><br>
 
                     <button type="submit" class="btn btn-rose "   style="margin-left: 600px; width: 30%; " >Add</button>
-                    <div class="clearfix"></div> 
+                    <div class="clearfix"></div>
+                    </div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
 @endsection
-      

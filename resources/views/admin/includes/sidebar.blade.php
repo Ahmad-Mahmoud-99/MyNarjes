@@ -108,13 +108,37 @@
                   </a>
                 </li>
 
-
-
-
-
               </ul>
             </div>
           </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#formsExamples">
+                    <i class="material-icons">paid
+                    </i>
+                    <p> Financial details
+
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="formsExamples">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{route('admin.laboratryAnalysisPrice')}}">
+                                <span class="sidebar-mini"> LAP </span>
+                                <span class="sidebar-normal"> Laboratory Analysis Price  </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="../../examples/forms/extended.html">
+                                <span class="sidebar-mini"> APP </span>
+                                <span class="sidebar-normal">Analysis Pending Payment </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#formsExamples">
               <i class="material-icons">content_paste</i>
