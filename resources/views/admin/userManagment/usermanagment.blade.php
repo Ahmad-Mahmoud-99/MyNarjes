@@ -2,6 +2,7 @@
 @extends('layouts.admin')
 @section('title','User Managment')
 @section('dash','User Managment')
+
 @section('content')
 
 
@@ -32,11 +33,15 @@
                               <option value="3">EMPLOYEE</option>
                               <option value="4">ACOUNTANT</option>
                           </select>
+<<<<<<< HEAD
                           </div>
 
                           <div class=" col-md-4 col-xs-12">
 
                           <button ype="submit" class="btn btn-rose" style="padding:10px;" >
+=======
+                          <button type="submit" class="btn btn-rose" style="padding:10px;" >
+>>>>>>> 0a4a14b956fa9f1d8addb153c39b58262f6286ec
                               Filter
                               <!-- <div class="ripple-container"></div> -->
                           </button>
@@ -46,12 +51,14 @@
                       <form class="navbar-form col-md-4 col-xs-12" method="get" action="{{route('admin.user.search')}}">
                           @csrf
                           <div class="input-group no-border">
-                              <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Search..." style="margin-top: 6px;">
+
+                              <input type="text" name="name" value="{{old('name')}}" class="form-control tool" placeholder="Search..." style="margin-top: 6px;">
                               <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
                                   <i class="material-icons"  style="padding-top: 1px;padding-left: 1px;">search</i>
                                   <div class="ripple-container"></div>
                               </button>
                           </div>
+
                       </form>
 </div>
                   </div>

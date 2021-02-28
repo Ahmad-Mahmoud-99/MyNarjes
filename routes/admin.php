@@ -64,6 +64,21 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','prevent-back-histor
     });
     ########################end analysis###########################
 
+    #######################price##########################
+    Route::group(['prefix'=>'financialDetails', 'namespace'=>'financial'],function(){
+        Route::get('/','financialController@index')->name('admin.laboratryAnalysisPrice');
+     //  Route::get('create','financialController@create')->name('admin.userManagment.create');
+      Route::get('/search','financialController@search')->name('admin.laboratoryDetails.search');
+     //  Route::get('/filter', 'financialController@filter')->name('admin.user.filter');
+     //  Route::post('store','financialController@store')->name('admin.userManagment.store');
+     //  Route::get('/userManagment','financialController@userManagment')->name('admin.userManagment');
+       Route::get('edit/{id}','financialController@edit')->name('admin.laboratoryDetails.edit');
+       Route::post('update/{id}','financialController@update')->name('admin.laboratoryDetails.update');//or put
+    });
+
+
+    #######################end price##########################
+
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');

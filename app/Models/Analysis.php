@@ -8,6 +8,7 @@ class Analysis extends Authenticatable
 {
     //
     protected  $table='analysis';
+    public $timestamps=false;
     protected $fillable = [
         	'group_id',	'parent_id','analysis_name','price','count',
 
