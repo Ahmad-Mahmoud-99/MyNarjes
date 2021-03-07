@@ -40,7 +40,7 @@
 
                     <br>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" class="btn btn-rose" data-toggle="modal" data-target="#exampleModalCenter">
                         Edit Price
                     </button>
 
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-rose">Save changes</button>
                                 </div>
                             </div>
                         </div>
