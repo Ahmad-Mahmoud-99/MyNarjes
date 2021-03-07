@@ -34,16 +34,20 @@
                               <option value="4">ACOUNTANT</option>
                           </select>
 
+
                           </div>
 
                           <div class=" col-md-4 col-xs-12">
 
                           <button ype="submit" class="btn btn-rose" style="padding:10px;" >
+
+                          <button type="submit" class="btn btn-rose" style="padding:10px;" >
+
                               Filter
                               <!-- <div class="ripple-container"></div> -->
                           </button>
-</div>
-</div>
+                     </div>
+                    </div>
                       </form>
                       <form class="navbar-form col-md-4 col-xs-12" method="get" action="{{route('admin.user.search')}}">
                           @csrf

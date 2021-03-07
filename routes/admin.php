@@ -51,20 +51,21 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','prevent-back-histor
     ########################end user###########################
 
 
-    ####################analysis##############
+    ####################analysis managment##############
     Route::group(['prefix'=>'analysis', 'namespace'=>'analysis'],function(){
         Route::get('/','analysisController@index')->name('admin.showAnalysis');
+        Route::get('form/{id}','analysisController@viewForm')->name('admin.showAnalysis.form');
         Route::get('/search','analysisController@search')->name('admin.search');
         Route::get('/fiter', 'analysisController@filter')->name('admin.filter');
-//        Route::get('create','analysisController@create')->name('admin.userManagment.create');
-//        Route::post('store','analysisController@store')->name('admin.userManagment.store');
+       Route::get('create','analysisController@createForm')->name('admin.analysis.create');
+       Route::post('store','analysisController@storeForm')->name('admin.analysis.store');
 //        Route::get('/userManagment','analysisController@userManagment')->name('admin.userManagment');
 //        Route::get('edit/{id}','analysisController@edit')->name('admin.userManagment.edit');
 //        Route::post('update/{id}','analysisController@update')->name('admin.userManagment.update');//or put
     });
-    ########################end analysis###########################
+    ########################end analysis managment###########################
 
-    #######################price##########################
+    #######################financial managment##########################
     Route::group(['prefix'=>'financialDetails', 'namespace'=>'financial'],function(){
         Route::get('/','financialController@index')->name('admin.laboratryAnalysisPrice');
      //  Route::get('create','financialController@create')->name('admin.userManagment.create');
@@ -77,7 +78,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','prevent-back-histor
     });
 
 
-    #######################end price##########################
+    #######################end financial managment##########################
 
 });
 
