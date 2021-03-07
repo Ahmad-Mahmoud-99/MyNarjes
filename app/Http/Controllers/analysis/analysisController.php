@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\analysis;
-
+use DB;
 use App\Models\Analysis;
 use App\Models\Inputs;
+use App\Models\NormalRange ;
 use Illuminate\Http\Request;
+use App\Http\Requests\NewFormRequest;
 use App\Http\Controllers\Controller;
 
 class analysisController extends Controller
@@ -49,25 +51,49 @@ class analysisController extends Controller
      public function createForm(){
         return view('admin.analysis.createNewForm');
      }
-     public function storeForm(){
+     public function storeForm(NewFormRequest $request){
         try{
+           $analysis_name=$request->analysis_name;
+          $group_id=$request->group;
+           $price=$request->price;
+           DB::beginTransaction();
+            $analysis_id=Analysis::insertGetId(
+            [
+                'analysis_name'=>$analysis_name,
+                'price'=>$price,
+                'group_id'=>$group_id,
+            ]
+           );
+      
+           $input_name=$request->input;
+           $max_normal=$request->max_normal;
+           $min_normal=$request->min_normal;
+           
+           for($count=0 ;$count <count($input_name);$count++){
+              $data=array(
+                'input_name'=>$input_name[$count],
+                'analysis_id'=>$analysis_id
+              );
+            $insert_data[]=$data;
+           }
+           foreach($insert_data as $in_d){
+              $input_id[]=Inputs::insertGetId($in_d);
+           }            
+            for($count=0 ;$count <count($input_name);$count++){
+              $data=array(
+                'high_range'=>$max_normal[$count],
+                'low_range'=>$min_normal[$count],
+                'analysis_id'=>$analysis_id,
+                'input_id'=>$input_id[$count]
+              );
+            $insert_data2[]=$data;
+           }
+           NormalRange::insert($insert_data2);
+           DB::commit();
 
-        //     $input=Inputs::create(
-        //        [
-        //            'f_name'=>$request->f_name,
-        //            'm_name'=>$request->m_name,
-        //            'l_name'=>$request->l_name,
-        //            'age'=>$request->age,
-        //            'phone'=>$request->phone,
-        //            'email'=>$request->email,
-        //            'address'=>$request->address,
-        //            'gender'=>$request->gender,
-        //            'birthday'=>$request->birthday,
-        //        ]
-        //    );
-
-        //    return redirect()->route('admin.viewAnalysis')->with(['success'=>'تم الحفظ بنجاح']);
+           return redirect()->route('admin.showAnalysis')->with(['success'=>'تم الحفظ بنجاح']);
            }catch(\Exception $ex){
+            DB::rollback(); 
                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
            }
      }

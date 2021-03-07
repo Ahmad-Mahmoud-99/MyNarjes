@@ -12,11 +12,11 @@
                   <br>
                   <div class="col-lg-12 col-md-4 col-sm-2" >
                      <div class="row"> 
-                      <form class="navbar-form col-lg-8" method="get" action="{{route('admin.analysis.store')}}">
+                      <form class="navbar-form col-lg-8" method="post" action="{{route('admin.analysis.store')}}">
                           @csrf
-                          <label for="input">Analysis Name </label>
-                           <input name='input' type="text">
-                           <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
+                          <label for="analysis_name">Analysis Name</label>
+                           <input name='analysis_name' type="text">
+                           <select name="group" class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                              <option disabled>Group Analysis</option>
                              <option selected value="0">ALL ANALYSIS </option>
                              <option value="1">BIOCHEMISTRY </option>
@@ -28,13 +28,17 @@
                              <option value="7">CULTURE </option>
                              <option value="8">OTHERS</option>
                           </select>
-                           <label for="input">Price</label>
-                           <input name='input' type="text">
+                           <label for="price">Price</label>
+                           <input name='price' type="text">
                            <br>
                           <div class="input">
                             <div class="remove"> 
+                            <label for=''>Max-Normal Rang</label> 
+                              <input type='text' name='max_normal[]' value=''>
+                              <label for=''>Min-Normal Rang</label> 
+                              <input type='text' name='min_normal[]' value=''>
                               <label for="input">input name (field)</label>
-                              <input name='input' type="text">
+                              <input name='input[]' type="text">
                               <button type="button" class="btn btn-rose"  onclick="addRow()">+</button>
                             </div>
                           </div>
@@ -54,9 +58,13 @@
         <script type="text/javascript">
             
             function addRow(){
-              var row=" <div id='remove'>"+"<label for='input'>input name (field)</label>"+
-                          "<input name='input'>"+
-                          "<button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>"+"</div>";
+              var row=" <div id='remove'>"+"<label for=''>Max-Normal Rang</label> "+
+                              "<input type='text' name='max_normal[]' value=''>"+
+                              "<label for=''>Min-Normal Rang</label> "+
+                              "<input type='text' name='min_normal[]' value=''>"+
+                              "<label for='input'>input name (field)</label>"+
+                             "<input name='input[]'>"+
+                            "<button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>"+"</div>";
             
             $(".input").append(row);
             }

@@ -2,11 +2,7 @@
 @extends('layouts.admin')
 @section('title','User Managment')
 @section('dash','User Managment')
-
 @section('content')
-
-
-       
           <div class="row">
             <div class="col-md-12">
               <div class="card">
