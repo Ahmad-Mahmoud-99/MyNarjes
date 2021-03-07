@@ -102,7 +102,7 @@
                   </a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{{route('admin.analysis.create')}}">
                     <span class="sidebar-mini"> ANA </span>
                     <span class="sidebar-normal"> Add New Analysis</span>
                   </a>

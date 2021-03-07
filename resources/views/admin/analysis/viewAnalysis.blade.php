@@ -14,10 +14,10 @@
                      <div class="row"> 
                   <form class="navbar-form col-lg-8" method="get" action="{{route('admin.filter')}}">
                           @csrf
-                          <div class="row" style="padding-right:60px;">
+                    <div class="row" style="padding-right:60px;">
 
                     <div class="col-lg-4">    
-                    <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
+                     <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                       <option disabled>Group Analysis</option>
                         <option selected value="0">ALL ANALYSIS </option>
                       <option value="1">BIOCHEMISTRY </option>
@@ -29,7 +29,7 @@
                       <option value="7">CULTURE </option>
                       <option value="8">OTHERS</option>
                     </select>
-</div>
+                   </div>
                     <div class="col-lg-4">
                           <button type="submit" class="btn btn-rose " style="padding:10px">
                               Filter
@@ -79,7 +79,7 @@
                                     <td class="text-center">{{$test->group->group_name}}</td>
                                     <td class="text-center">{{$test->count}}</td>
                                     <td class="td-actions text-center">
-                                        <a href="#">
+                                        <a href="{{route('admin.showAnalysis.form',$test->analysis_id)}}">
                                             <button type="button" rel="tooltip" class="btn btn-success">
                                                view
                                             </button>
