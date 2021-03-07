@@ -169,7 +169,6 @@ The above copyright notice and this permission notice shall be included in all c
         <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
         <script src="{{asset('assets/js/plugins/fullcalendar.min.js')}}"></script>
         <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-        <!-- <script src="{{asset('assets/js/plugins/jquery-jvectormap.js')}}"></script> -->
         <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
         <script src="{{asset('assets/js/plugins/nouislider.min.js')}}"></script>
         <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->

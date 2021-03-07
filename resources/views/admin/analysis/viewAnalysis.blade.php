@@ -14,7 +14,7 @@
                      <div class="row"> 
                   <form class="navbar-form col-md-8" method="get" action="{{route('admin.filter')}}">
                           @csrf
-                          <div class="row" style="padding-right:60px;">
+                    <div class="row" style="padding-right:60px;">
 
                     <div class="col-md-4">    
                     <select class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
@@ -79,7 +79,7 @@
                                     <td class="text-center">{{$test->group->group_name}}</td>
                                     <td class="text-center">{{$test->count}}</td>
                                     <td class="td-actions text-center">
-                                        <a href="#">
+                                        <a href="{{route('admin.showAnalysis.form',$test->analysis_id)}}">
                                             <button type="button" rel="tooltip" class="btn btn-success">
                                                view
                                             </button>
