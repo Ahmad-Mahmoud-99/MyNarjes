@@ -4,6 +4,9 @@
 @section('dash','User Managment')
 
 @section('content')
+
+
+       
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -14,14 +17,15 @@
                   <h4 class="card-title">Users Management</h4>
                   <br>
                 </div>
-                  <div class="col-md-12">
+                  <div class="col-md-12 col-xs-12">
 
                   <div class="row">
 
-                      <form class="navbar-form  col-lg-8" name="role" method="get" action="{{route('admin.user.filter')}}">
+                      <form class="navbar-form  col-md-8 " name="role" method="get" action="{{route('admin.user.filter')}}">
                           @csrf
                           <div class="row" style="padding-right:60px;">
-                          <select class="selectpicker col-lg-4" name="role" data-style="select-with-transition" title="Role Name" data-size="7">
+                          <div class="col-md-4 col-xs-12">
+                          <select class="selectpicker " name="role" data-style="select-with-transition" title="Role Name" data-size="7">
                               <option disabled>Roles</option>
                               <option selected value="0">ALL ROLES </option>
                               <option value="1">ADMIN </option>
@@ -29,13 +33,22 @@
                               <option value="3">EMPLOYEE</option>
                               <option value="4">ACOUNTANT</option>
                           </select>
+<<<<<<< HEAD
+                          </div>
+
+                          <div class=" col-md-4 col-xs-12">
+
+                          <button ype="submit" class="btn btn-rose" style="padding:10px;" >
+=======
                           <button type="submit" class="btn btn-rose" style="padding:10px;" >
+>>>>>>> 0a4a14b956fa9f1d8addb153c39b58262f6286ec
                               Filter
                               <!-- <div class="ripple-container"></div> -->
                           </button>
 </div>
+</div>
                       </form>
-                      <form class="navbar-form col-lg-4" method="get" action="{{route('admin.user.search')}}">
+                      <form class="navbar-form col-md-4 col-xs-12" method="get" action="{{route('admin.user.search')}}">
                           @csrf
                           <div class="input-group no-border">
 
@@ -116,5 +129,6 @@
         </div>
       </div>
     </div>
-  </div>
+  
+
 @endsection

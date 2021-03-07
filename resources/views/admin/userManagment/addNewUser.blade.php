@@ -24,8 +24,9 @@
 
 @endsection
 @section('content')
+
           <div class="row" >
-            <div class="col-md-8" style="margin: auto;">
+            <div class="col-md-8 col-sm-4" style="margin: auto;">
               <div class="card" style="width:120%; margin-left: -40px;">
                 <div class="card-header card-header-icon card-header-rose">
                   <div class="card-icon">
@@ -46,7 +47,7 @@
                            @enderror
                             </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Middle Name</label>
                           <input type="text" class="form-control"name="m_name" value="{{old('m_name')}}">
@@ -55,7 +56,7 @@
                            @enderror
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Last Name</label>
                           <input type="text" class="form-control" name="l_name" value="{{old('l_name')}}">
@@ -67,7 +68,7 @@
                     </div>
                     <br><br>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">User Name</label>
                           <input type="text" class="form-control" name="username"value="{{old('username')}}">
@@ -75,7 +76,7 @@
                               <span class="text-danger">{{$message}} </span>
                            @enderror                        </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Password</label>
                           <input type="password"  value="{{old('password')}}" name="password"class="form-control">
@@ -83,7 +84,7 @@
                               <span class="text-danger">{{$message}} </span>
                            @enderror                        </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
                           <input type="text" class="form-control"name="email"value="{{old('email')}}">
@@ -95,7 +96,7 @@
                     </div>
                     <br><br>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <select  name="role_name"  class="selectpicker" data-background-color="rose" data-style="select-with-transition" data-size="7">
                             <option disabled selected value="role">role</option>
@@ -122,7 +123,7 @@
                           <br>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone</label>
                           <input type="text" class="form-control" name="phone" value="{{old('phone')}}">
@@ -130,7 +131,7 @@
                               <span class="text-danger">{{$message}} </span>
                            @enderror                        </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Address</label>
                           <input type="text" class="form-control"name="address"value="{{old('address')}}" >
@@ -142,7 +143,7 @@
                     </div>
                     <br><br>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group">
                           <label class="bmd-label-floating">Age</label>
                           <input type="text" class="form-control"name="age" value="{{old('age')}}">
@@ -150,7 +151,7 @@
                               <span class="text-danger">{{$message}} </span>
                            @enderror                        </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 ">
                         <div class="form-group" >
                          <div class="tool">
 
@@ -164,9 +165,14 @@
                       </div>
                     <br><br>
 
+<<<<<<< HEAD
+                    <button type="submit" class="btn btn-rose "   style="padding:10px; width: 30%; " >Add</button>
+                    <div class="clearfix"></div> 
+=======
                     <button type="submit" class="btn btn-rose "   style="margin-left: 600px; width: 30%; " >Add</button>
                     <div class="clearfix"></div>
                     </div>
+>>>>>>> 0a4a14b956fa9f1d8addb153c39b58262f6286ec
                   </form>
                 </div>
               </div>
