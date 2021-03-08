@@ -28,12 +28,13 @@ class NewFormRequest extends FormRequest
             'analysis_name'=>'required|unique:analysis,analysis_name'.$this->id,
             'price'=> 'required|numeric|int',
             'group'=> 'required',
-            'max_normal'=>'required|numeric|array|min:1',
-            'min_normal'=>'required|numeric|array|min:1',
-            'input'=>'required|string|array|min:1',
-            'max_normail.max'=>'required',
-            'min_normail.min'=>'required',
-            'input.input'=>'required',
+            'max_normal'=>'required|array|min:1',
+            'min_normal'=>'required|array|min:1',
+            'input'=>'required|array|min:1',
+            'max_normal.max'=>'required|numeric',
+            'min_normal.min'=>'required|numeric',
+            'input.input'=>'required|string',
+
         ];
     }
     public function messages()

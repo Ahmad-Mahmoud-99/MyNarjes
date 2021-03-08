@@ -53,10 +53,9 @@ class analysisController extends Controller
      }
      public function storeForm(NewFormRequest $request){
         try{
-            return 'hello';
-
+            return $request->all();
             $analysis_name=$request->analysis_name;
-          $group_id=$request->group;
+           $group_id=$request->group;
            $price=$request->price;
            DB::beginTransaction();
             $analysis_id=Analysis::insertGetId(
