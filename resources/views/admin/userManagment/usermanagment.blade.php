@@ -35,13 +35,14 @@
 
                           <div class=" col-md-4 col-xs-12">
 
-                          <button ype="submit" class="btn btn-rose" style="padding:10px;" >
+
 
                           <button type="submit" class="btn btn-rose" style="padding:10px;" >
 
                               Filter
                               <!-- <div class="ripple-container"></div> -->
                           </button>
+
                      </div>
                     </div>
                       </form>
@@ -57,7 +58,7 @@
                           </div>
 
                       </form>
-</div>
+                    </div>
                   </div>
                 <div class="card-body">
 
@@ -126,6 +127,6 @@
         </div>
       </div>
     </div>
-  
+
 
 @endsection

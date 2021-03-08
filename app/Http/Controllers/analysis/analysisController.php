@@ -53,7 +53,9 @@ class analysisController extends Controller
      }
      public function storeForm(NewFormRequest $request){
         try{
-           $analysis_name=$request->analysis_name;
+            return 'hello';
+
+            $analysis_name=$request->analysis_name;
           $group_id=$request->group;
            $price=$request->price;
            DB::beginTransaction();
@@ -64,11 +66,11 @@ class analysisController extends Controller
                 'group_id'=>$group_id,
             ]
            );
-      
-           $input_name=$request->input;
-           $max_normal=$request->max_normal;
-           $min_normal=$request->min_normal;
-           
+
+           $input_name=$request->input('input');
+           $max_normal=$request->input('max_normal');
+           $min_normal=$request->input('min_normal');
+
            for($count=0 ;$count <count($input_name);$count++){
               $data=array(
                 'input_name'=>$input_name[$count],
@@ -78,7 +80,7 @@ class analysisController extends Controller
            }
            foreach($insert_data as $in_d){
               $input_id[]=Inputs::insertGetId($in_d);
-           }            
+           }
             for($count=0 ;$count <count($input_name);$count++){
               $data=array(
                 'high_range'=>$max_normal[$count],
@@ -93,7 +95,8 @@ class analysisController extends Controller
 
            return redirect()->route('admin.showAnalysis')->with(['success'=>'تم الحفظ بنجاح']);
            }catch(\Exception $ex){
-            DB::rollback(); 
+            DB::rollback();
+            return $ex;
                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
            }
      }
