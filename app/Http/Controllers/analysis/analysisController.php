@@ -53,9 +53,7 @@ class analysisController extends Controller
      }
      public function storeForm(NewFormRequest $request){
         try{
-            return 'hello';
-
-            $analysis_name=$request->analysis_name;
+          $analysis_name=$request->analysis_name;
           $group_id=$request->group;
            $price=$request->price;
            DB::beginTransaction();
@@ -67,10 +65,10 @@ class analysisController extends Controller
             ]
            );
 
-           $input_name=$request->input('input');
-           $max_normal=$request->input('max_normal');
-           $min_normal=$request->input('min_normal');
-
+           $input_name=$request->input;
+           $max_normal=$request->max_normal;
+           $min_normal=$request->min_normal;
+          return $input_name;
            for($count=0 ;$count <count($input_name);$count++){
               $data=array(
                 'input_name'=>$input_name[$count],
@@ -78,6 +76,7 @@ class analysisController extends Controller
               );
             $insert_data[]=$data;
            }
+
            foreach($insert_data as $in_d){
               $input_id[]=Inputs::insertGetId($in_d);
            }

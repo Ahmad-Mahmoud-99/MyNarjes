@@ -45,20 +45,20 @@
                           <div class="input">
                             <div class="remove">
                             <label for=''>Max-Normal Rang</label>
-                              <input type='text' name='max_normal[max]' value=''>
-                                @error("max_normal.max")
+                              <input type='text' name='max_normal[]' value=''>
+                                @error("max_normal")
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
 
                                 <label for=''>Min-Normal Rang</label>
-                              <input type='text' name='min_normal[min]' value=''>
-                                @error("min_normal.min")
+                              <input type='text' name='min_normal[]' value=''>
+                                @error("min_normal")
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
 
                                 <label for="input">input name (field)</label>
-                              <input name='input[input]' type="text">
-                                @error("input.input")
+                              <input name='input[]' type="text">
+                                @error("input")
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
 
@@ -82,20 +82,20 @@
 
             function addRow(){
               var row=" <div id='remove'>"+"<label for=''>Max-Normal Rang</label> "+
-                              "<input type='text' name='max_normal[max]' value=''>"+
-                  '@error("max_normal.max")'+
+                              "<input type='text' name='max_normal[]' value=''>"+
+                  '@error("max_normal")'+
                   '<span class="text-danger">{{$message}}</span>'+
                   '@enderror' +
 
                     "<label for=''>Min-Normal Rang</label> "+
-                              "<input type='text' name='min_normal[min]' value=''>"+
-                   ' @error("min_normal.min")'+
+                              "<input type='text' name='min_normal[]' value=''>"+
+                   ' @error("min_normal")'+
                     '<span class="text-danger">{{$message}}</span>'+
                 '@enderror'+
 
                     "<label for='input'>input name (field)</label>"+
-                             "<input name='input[input]'>"+
-                  '@error("input.input")'+
+                             "<input name='input[]'>"+
+                  '@error("input")'+
                   '<span class="text-danger">{{$message}}</span>'+
                 '@enderror'+
 
