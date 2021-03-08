@@ -35,8 +35,6 @@
 
                           <div class=" col-md-4 col-xs-12">
 
-                          <button ype="submit" class="btn btn-rose" style="padding:10px;" >
-
                           <button type="submit" class="btn btn-rose" style="padding:10px;" >
 
                               Filter
@@ -48,7 +46,6 @@
                       <form class="navbar-form col-md-4 col-xs-12" method="get" action="{{route('admin.user.search')}}">
                           @csrf
                           <div class="input-group no-border">
-
                               <input type="text" name="name" value="{{old('name')}}" class="form-control tool" placeholder="Search..." style="margin-top: 6px;">
                               <button type="submit" class="btn btn-rose btn-round btn-just-icon" >
                                   <i class="material-icons"  style="padding-top: 1px;padding-left: 1px;">search</i>

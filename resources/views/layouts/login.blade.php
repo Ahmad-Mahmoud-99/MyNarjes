@@ -46,12 +46,12 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
 
-                <li class="nav-item ">
+                <!-- <li class="nav-item ">
                     <a href="../pages/register.html" class="nav-link">
                         <i class="material-icons">person_add</i>
                         Register
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="https://creative-tim.com/presentation" class="nav-link">
                         About Us

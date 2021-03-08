@@ -165,14 +165,9 @@
                       </div>
                     <br><br>
 
-<<<<<<< HEAD
-                    <button type="submit" class="btn btn-rose "   style="padding:10px; width: 30%; " >Add</button>
-                    <div class="clearfix"></div> 
-=======
                     <button type="submit" class="btn btn-rose "   style="margin-left: 600px; width: 30%; " >Add</button>
                     <div class="clearfix"></div>
                     </div>
->>>>>>> 0a4a14b956fa9f1d8addb153c39b58262f6286ec
                   </form>
                 </div>
               </div>

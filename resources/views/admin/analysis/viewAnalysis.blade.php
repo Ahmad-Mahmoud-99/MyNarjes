@@ -57,6 +57,9 @@
                 </div>
 
                 <div class="card-body">
+                  
+                @include('alert.success')
+                @include('alert.errors')
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
