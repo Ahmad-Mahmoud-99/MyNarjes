@@ -25,7 +25,7 @@ class updatePriceRequest extends FormRequest
     {
         return [
             //
-            'price'=>'required|numeric|int',
+            'price'=>'required|numeric|integer',
         ];
     }
     public function messages()
@@ -34,7 +34,7 @@ class updatePriceRequest extends FormRequest
             //
         'required'=>'هذا الحقل مطلوب',
          'numeric'=>'هذا الحقل أرقام فقط',
-         'int'=>'يجب أن يكون رقم صحيح',
+         'integer'=>'يجب أن يكون رقم صحيح',
 
         ];
     }

@@ -11,16 +11,16 @@
                   <h4 class="card-title">Create New Form</h4>
                   <br>
                   <div class="col-lg-12 col-md-4 col-sm-2" >
-                     <div class="row">
+                     <div class="row"> 
                       <form class="navbar-form col-lg-8" method="post" action="{{route('admin.analysis.store')}}">
                           @csrf
                           <label for="analysis_name">Analysis Name</label>
                            <input name='analysis_name' type="text">
-                          @error("analysis_name")
-                          <span class="text-danger">{{$message}}</span>
-                          @enderror
-
-                          <select name="group" class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
+                           @error("analysis_name")
+                                <span class="text-danger">{{$message}}</span>
+                             @enderror
+                                                                              
+                           <select name="group" class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                              <option disabled>Group Analysis</option>
                              <option value="1">BIOCHEMISTRY </option>
                              <option value="2">SEROLOGY</option>
@@ -32,43 +32,31 @@
                              <option value="8">OTHERS</option>
                           </select>
                           @error("group")
-                          <span class="text-danger">{{$message}}</span>
-                          @enderror
-
-                          <label for="price">Price</label>
+                                <span class="text-danger">{{$message}}</span>
+                             @enderror
+                           <label for="price">Price</label>
                            <input name='price' type="text">
-                          @error("price")
-                          <span class="text-danger">{{$message}}</span>
-                          @enderror
+                           @error("price")
+                                <span class="text-danger">{{$message}}</span>
+                             @enderror
 
-                          <br>
+                           <br>
                           <div class="input">
-                            <div class="remove">
-                            <label for=''>Max-Normal Rang</label>
+                            <div class="remove"> 
+                            <label for=''>Max-Normal Rang</label> 
                               <input type='text' name='max_normal[]' value=''>
-                                @error("max_normal")
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-
-                                <label for=''>Min-Normal Rang</label>
+                              <label for=''>Min-Normal Rang</label> 
                               <input type='text' name='min_normal[]' value=''>
-                                @error("min_normal")
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-
-                                <label for="input">input name (field)</label>
+                              <label for="input">input name (field)</label>
                               <input name='input[]' type="text">
-                                @error("input")
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-
-                                <button type="button" class="btn btn-rose"  onclick="addRow()">+</button>
+                              <
+                              <button type="button" class="btn btn-rose"  onclick="addRow()">+</button>
                             </div>
                           </div>
                           <button type="submit" class="btn btn-rose">save</button>
                       </form>
-
-
+                      
+                      
                      </div>
                    </div>
                 </div>
@@ -79,28 +67,16 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
-
+            
             function addRow(){
               var row=" <div id='remove'>"+"<label for=''>Max-Normal Rang</label> "+
                               "<input type='text' name='max_normal[]' value=''>"+
-                  '@error("max_normal")'+
-                  '<span class="text-danger">{{$message}}</span>'+
-                  '@enderror' +
-
-                    "<label for=''>Min-Normal Rang</label> "+
+                              "<label for=''>Min-Normal Rang</label> "+
                               "<input type='text' name='min_normal[]' value=''>"+
-                   ' @error("min_normal")'+
-                    '<span class="text-danger">{{$message}}</span>'+
-                '@enderror'+
-
-                    "<label for='input'>input name (field)</label>"+
+                              "<label for='input'>input name (field)</label>"+
                              "<input name='input[]'>"+
-                  '@error("input")'+
-                  '<span class="text-danger">{{$message}}</span>'+
-                '@enderror'+
-
-                    "<button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>"+"</div>";
-
+                            "<button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>"+"</div>";
+            
             $(".input").append(row);
             }
             function removeRow() {
