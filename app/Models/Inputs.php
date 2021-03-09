@@ -15,7 +15,7 @@ class Inputs extends Model
 
     ];
     public function scopeSelection($query){
-        return $query->select('input_name','analysis_id');
+        return $query->select('input_id','input_name','analysis_id');
     }
     public function analysis(){
        return $this->hasMany('App\Models\Analysis', 'group_id', 'analysis_id');

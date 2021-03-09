@@ -28,18 +28,14 @@ class NewFormRequest extends FormRequest
             'analysis_name'=>'required|unique:analysis,analysis_name'.$this->id,
             'price'=> 'required|numeric|integer',
             'group'=> 'required',
-            // 'max_normal'=>'required|array|min:1',
-            // 'min_normal'=>'required|array|min:1',
-            // 'input'=>'required|array|min:1',
-            // 'max_normal.max'=>'required|numeric',
-            // 'min_normal.min'=>'required|numeric',
-            // 'input.input'=>'required|string',
+            'max_normal.*'=>'required|numeric',
+            'min_normal.*'=>'required|numeric',
+            'input.*'=>'required|string',
         ];
     }
     public function messages()
     {
         return[
-            
         'integer'=>'يجب ادخال رقم صحيح',
         'analysis_name.required'=> 'هذا الحقل مطلوب',
         'string'=>'يجب ادخال نص',

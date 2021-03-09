@@ -10,55 +10,110 @@
                   </div>
                   <h4 class="card-title">Create New Form</h4>
                   <br>
-                  <div class="col-lg-12 col-md-4 col-sm-2" >
-                     <div class="row"> 
-                      <form class="navbar-form col-lg-8" method="post" action="{{route('admin.analysis.store')}}">
+                  <div class="card-body" >                     
+                   <form class="navbar-form col-lg-12" method="post" action="{{route('admin.analysis.store')}}">
                           @csrf
-                          <label for="analysis_name">Analysis Name</label>
-                           <input name='analysis_name' type="text">
-                           @error("analysis_name")
+                     <div class="row"> 
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="analysis_name" class="bmd-label-floating">Analysis Name</label>
+                              <input name='analysis_name'class="form-control" type="text" value="{{old('analysis_name')}}">
+                             @error("analysis_name")
                                 <span class="text-danger">{{$message}}</span>
                              @enderror
-                                                                              
-                           <select name="group" class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
+                              </div>                                                
+                            </div>  
+                          <div class="col-md-3 ">
+                            <div class="form-group">                                              
+                          <select name="group" class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
                              <option disabled>Group Analysis</option>
-                             <option value="1">BIOCHEMISTRY </option>
+                            @if (old('group') == '1')
+                              <option value="1" selected>BIOCHEMISTRY</option>
+                            @else
+                             <option value="1">BIOCHEMISTRY</option>
+                            @endif
+                            @if (old('group') == '2')
+                              <option value="2" selected>SEROLOGY</option>
+                            @else
                              <option value="2">SEROLOGY</option>
+                            @endif
+                            @if (old('group') == '3')
+                              <option value="3" selected>HEAMTOLOGY</option>
+                            @else
                              <option value="3">HEAMTOLOGY</option>
-                              <option value="4">URINE ANALYSIS</option>
-                             <option value="5">DIFFERENTIAL </option>
-                             <option value="6">STOOLANALYSIS</option>
+                            @endif
+                            @if (old('group') == '4')
+                              <option value="4" selected>URINE ANALYSIS</option>
+                            @else
+                             <option value="4">URINE ANALYSIS</option>
+                            @endif 
+                            @if (old('group') == '5')
+                              <option value="5" selected>DIFFERENTIAL</option>
+                            @else
+                             <option value="5">DIFFERENTIAL</option>
+                            @endif
+                           
+                            @if (old('group') == ' 6')
+                              <option value="6" selected> STOOLANALYSIS</option>
+                            @else
+                             <option value="6"> STOOLANALYSIS </option>
+                            @endif
+                             @if (old('group') == '7')
+                              <option value="7" selected>CULTURE </option>
+                            @else
                              <option value="7">CULTURE </option>
+                            @endif
+                            @if (old('group') == '8')
+                              <option value="8" selected>OTHERS</option>
+                            @else
                              <option value="8">OTHERS</option>
-                          </select>
-                          @error("group")
-                                <span class="text-danger">{{$message}}</span>
-                             @enderror
-                           <label for="price">Price</label>
-                           <input name='price' type="text">
-                           @error("price")
-                                <span class="text-danger">{{$message}}</span>
-                             @enderror
+                            @endif
 
-                           <br>
-                          <div class="input">
-                            <div class="remove"> 
-                            <label for=''>Max-Normal Rang</label> 
-                              <input type='text' name='max_normal[]' value=''>
-                              <label for=''>Min-Normal Rang</label> 
-                              <input type='text' name='min_normal[]' value=''>
-                              <label for="input">input name (field)</label>
-                              <input name='input[]' type="text">
-                              <
-                              <button type="button" class="btn btn-rose"  onclick="addRow()">+</button>
+                          </select>
+                            @error("group")
+                                <span class="text-danger">{{$message}}</span>
+                             @enderror
+                             </div>                                                
                             </div>
+                    
+                            <div class="col-md-3">
+                            <div class="form-group">    
+                               <label for="price" class="bmd-label-floating">Price</label>
+                               <input name='price'class="form-control" type="text" value="{{old('price')}}">
+                                 @error("price")
+                                  <span class="text-danger">{{$message}}</span>
+                                 @enderror
+                                </div>
+                               </div>
+                           </div>
+                          <div class="input">
+                              <label for="input">input name</label>
+                              <input name='input[]' type="text" value='{{old("input.0")}}'>
+                              @error("input.*")
+                                <span class="text-danger">{{$message}}</span>
+                              @enderror
+                              <label for=''>Max-Range</label> 
+                              <input type='text' name='max_normal[]' value='{{old("max_normal.0")}}'>
+                              @error("max_normal.*")
+                                <span class="text-danger">{{$message}}</span>
+                              @enderror
+                              <label for=''>Min-Range</label> 
+                              <input type='text' name='min_normal[]' value='{{old("min_normal.0")}}'>
+                              @error("min_normal.*")
+                                <span class="text-danger">{{$message}}</span>
+                              @enderror
+                              
+                              <button type="button" class="btn btn-rose"  id="add" >+</button>
                           </div>
                           <button type="submit" class="btn btn-rose">save</button>
+                          <br>
+                          <br>
+
                       </form>
                       
                       
                      </div>
-                   </div>
+                   
                 </div>
               </div>
             </div>
@@ -67,22 +122,33 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
-            
-            function addRow(){
-              var row=" <div id='remove'>"+"<label for=''>Max-Normal Rang</label> "+
+      $(document).ready(function(){                
+         $(document).on('click','#add',function(){
+            var row=" <div class='remove'>"+
+                             "<label for='input'>input name </label>"+
+                             "<input name='input[]' value=''>"+
+                             " @error('input.*')"+
+                               " <span class='text-danger'>{{$message}}</span>"+
+                             " @enderror"+
+                             "<label for=''>Max-Range</label> "+
                               "<input type='text' name='max_normal[]' value=''>"+
-                              "<label for=''>Min-Normal Rang</label> "+
+                              " @error('max_normal.*')"+
+                               " <span class='text-danger'>{{$message}}</span>"+
+                             " @enderror"+
+                              "<label for=''>Min-Range</label> "+
                               "<input type='text' name='min_normal[]' value=''>"+
-                              "<label for='input'>input name (field)</label>"+
-                             "<input name='input[]'>"+
-                            "<button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>"+"</div>";
-            
-            $(".input").append(row);
-            }
-            function removeRow() {
-               var myobj = document.getElementById("remove");
-                myobj.remove();
-            }
+                             " @error('min_normal.*')"+
+                               " <span class='text-danger'>{{$message}}</span>"+
+                             " @enderror"+
+                            
+                            "<button type='button' class='btn btn-danger' id='remove'>-</button>"+"</div>";
+            $('.input').append(row);
+        });
+        $(document).on('click','#remove',function(){
+          $(this).closest('.remove').remove();
+        });
+      });
+           
         </script>
 
 @endsection

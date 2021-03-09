@@ -40,10 +40,16 @@ class analysisController extends Controller
     }
      public function viewForm($analysis_id){
       try{
-        $analysis_fields=Inputs::where('analysis_id',$analysis_id)->get();
+         $analysis_fields=Inputs::where('analysis_id',$analysis_id)->get();
         $analysis=Analysis::where('analysis_id',$analysis_id)->get();
-        return view('admin.analysis.viewForm', compact('analysis_fields'),compact('analysis'));
+        $normal_range="";            
+        for($count=0;$count<count($analysis_fields);$count++){
+          $normal_range =NormalRange::where('analysis_id',$analysis_id)->where('input_id',$analysis_fields[$count]['input_id'])->get();        
+        }
+        //return $normal_range;
+        return view('admin.analysis.viewForm',compact('analysis_fields'),compact('analysis'),compact('normal_range'));
       }catch(\Exception $ex){
+        return $ex;
         return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
       }
      }
@@ -67,6 +73,7 @@ class analysisController extends Controller
            $input_name=$request->input;
            $max_normal=$request->max_normal;
            $min_normal=$request->min_normal;
+
            for($count=0 ;$count <count($input_name);$count++){
               $data=array(
                 'input_name'=>$input_name[$count],
@@ -74,7 +81,6 @@ class analysisController extends Controller
               );
             $insert_data[]=$data;
            }
-
            foreach($insert_data as $in_d){
               $input_id[]=Inputs::insertGetId($in_d);
            }

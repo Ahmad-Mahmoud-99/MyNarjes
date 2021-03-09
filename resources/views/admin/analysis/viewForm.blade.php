@@ -37,12 +37,19 @@
                         @endisset
                         <br>
                         <div class="input">
-                          @isset($analysis_fields )
-                            @foreach($analysis_fields as $test)
+                        @isset($analysis_fields )
+                          @foreach($analysis_fields as $test)
                             <div id="remove"> 
                             <!-- normal rang -->
-                              <label for=''>Normal Rang</label> 
-                              <input type='text' name='normal' value="">
+                            @isset($normal_range)
+                             @foreach($normal_range as $test)
+                              <label for=''>Max-Normal Rang</label> 
+                              <input type='text' name='max_normal' value='{{$test->high-range}}'>
+                              <label for=''>Min-Normal Rang</label> 
+                              <input type='text' name='min_normal' value='{{$test->low_range}}'>
+                            @endforeach
+                           @endisset
+                           
                               <label for='{{$index->input_name}}'>Input Name</label> 
                               <input type='text' name='name' value="{{$test->input_name}}">
                               <button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>
@@ -69,10 +76,13 @@
         <script type="text/javascript">
             
             function addRow(){
-              var row=" <label for=''>Normal Rang</label> "+
-                              "<input type='text' name='normal' value=''>"+
-                              "<label for='{{$index->input_name}}'>Input Name</label> <div id='remove'>"+
-                              "<input name='input'>"+
+              var row="<div id='remove'>"+"<label for=''>Max-Normal Rang</label> "+
+                              "<input type='text' name='max_normal' value=''>"+
+                              "<label for=''>Min-Normal Rang</label> "+
+                              "<input type='text' name='min_normal' value=''>"+
+                             
+                              "<label for='{{$index->input_name}}'>Input Name</label>"+
+                              "<input name='input[]'>"+
                               "<button type='button' class='btn btn-danger' onclick='removeRow()'>-</button>"+"</div>";
             
             $(".input").append(row);
