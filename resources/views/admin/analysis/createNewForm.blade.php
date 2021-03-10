@@ -23,9 +23,9 @@
                              @enderror
                               </div>                                                
                             </div>  
-                          <div class="col-md-3 ">
+                          <div class="col-md-4 ">
                             <div class="form-group">                                              
-                          <select name="group" class="selectpicker" name="group" data-style="select-with-transition" title="Group Name" data-size="7">
+                          <select name="group" class="selectpicker" name="group" group-title="Group Name" data-style="select-with-transition" title="Group Name" data-size="7">
                              <option disabled>Group Analysis</option>
                             @if (old('group') == '1')
                               <option value="1" selected>BIOCHEMISTRY</option>
@@ -70,6 +70,7 @@
                             @endif
 
                           </select>
+                           <br>
                             @error("group")
                                 <span class="text-danger">{{$message}}</span>
                              @enderror
@@ -89,17 +90,17 @@
                           <div class="input">
                               <label for="input">input name</label>
                               <input name='input[]' type="text" value='{{old("input.0")}}'>
-                              @error("input.*")
+                              @error("input.0")
                                 <span class="text-danger">{{$message}}</span>
                               @enderror
                               <label for=''>Max-Range</label> 
                               <input type='text' name='max_normal[]' value='{{old("max_normal.0")}}'>
-                              @error("max_normal.*")
+                              @error("max_normal.0")
                                 <span class="text-danger">{{$message}}</span>
                               @enderror
                               <label for=''>Min-Range</label> 
                               <input type='text' name='min_normal[]' value='{{old("min_normal.0")}}'>
-                              @error("min_normal.*")
+                              @error("min_normal.0")
                                 <span class="text-danger">{{$message}}</span>
                               @enderror
                               
