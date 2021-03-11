@@ -121,33 +121,36 @@ class analysisController extends Controller
              ]
           );
 
-          $input_name=$request->input;
+          $input_name=$request->input_name;
           $max_normal=$request->max_normal;
           $min_normal=$request->min_normal;
 
           for($count=0 ;$count <count($input_name);$count++){
-             $data=array(
-               'input_name'=>$input_name[$count],
-               'analysis_id'=>$analysis_id
-             );
-           $insert_data[]=$data;
+             $data[]= $input_name[$count];
           }
-          foreach($insert_data as $in_d){
-             $input_id[]=Inputs::insertGetId($in_d);
-          }
+          $input_id=Inputs::where('analysis_id',$analysis_id)->get('input_id');
+            for($i=0;$i<count($input_id);$i++){
+              Inputs::where(['analysis_id'=>$analysis_id,'input_id'=>$input_id[$i]->input_id])->update(['input_name'=>$data[$i]]);
+            }
+          
            for($count=0 ;$count <count($input_name);$count++){
-             $data=array(
+             $data2=array(
                'high_range'=>$max_normal[$count],
                'low_range'=>$min_normal[$count],
                'analysis_id'=>$analysis_id,
-               'input_id'=>$input_id[$count]
+               'input_id'=>$input_id[$count]->input_id
              );
-           $insert_data2[]=$data;
+           $insert_data2[]=$data2;
           }
-          NormalRange::insert($insert_data2);
+          foreach($insert_data2 as $index){
+            NormalRange::where(['analysis_id'=>$analysis_id,'input_id'=>$index['input_id']])->update([
+              'high_range'=>$index['high_range'],
+              'low_range'=>$index['low_range'],
+            ]);
+          }
           DB::commit();
 
-          return redirect()->route('admin.showAnalysis')->with(['success'=>'تم الحفظ بنجاح']);
+          return redirect()->route('admin.showAnalysis')->with(['success'=>'تم التعديل بنجاح']);
          }catch(\Exception $ex){
             DB::rollback();
                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);

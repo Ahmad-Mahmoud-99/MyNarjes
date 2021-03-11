@@ -14,6 +14,7 @@ class Inputs extends Model
     protected $hidden = [
 
     ];
+    public $timestamps=false;
     public function scopeSelection($query){
         return $query->select('input_id','input_name','analysis_id');
     }

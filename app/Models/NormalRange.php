@@ -15,6 +15,8 @@ class NormalRange extends Model
     protected $hidden = [
 
     ];
+    public $timestamps=false;
+
     public function scopeSelection($query){
         return $query->select('id','analysis_id','input_id','high_range','low_range');
     }
