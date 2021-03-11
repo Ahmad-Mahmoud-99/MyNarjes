@@ -55,7 +55,12 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','prevent-back-histor
     Route::group(['prefix'=>'analysis', 'namespace'=>'analysis'],function(){
         Route::get('/','analysisController@index')->name('admin.showAnalysis');
         Route::get('showForm/{id}','analysisController@viewForm')->name('admin.showAnalysis.form');
-        Route::post('updateForm/{id}','analysisController@updateForm')->name('admin.showAnalysis.updateForm');
+        Route::post('updateForm/{id}','analysisController@analysisUpdateForm')->name('admin.showAnalysis.updateForm');
+
+       Route::get('addInput/{id}','analysisController@AddNewInputs')->name('admin.analysis.addInputs');
+       Route::post('storeInput/{id}','analysisController@storeNewInputs')->name('admin.analysis.storeInputs');
+
+        
         Route::get('/search','analysisController@search')->name('admin.search');
         Route::get('/fiter', 'analysisController@filter')->name('admin.filter');
        Route::get('create','analysisController@createForm')->name('admin.analysis.create');

@@ -10,6 +10,9 @@
                   </div>
                   <h4 class="card-title">Create New Form</h4>
                   <br>
+                @include('alert.success')
+                 @include('alert.errors')
+                 <br>
                   <div class="card-body">                     
                    <form class="navbar-form col-lg-12 form" method="post" action="{{route('admin.analysis.store')}}">
                           @csrf

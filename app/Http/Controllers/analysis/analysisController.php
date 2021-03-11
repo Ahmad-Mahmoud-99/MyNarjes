@@ -6,6 +6,7 @@ use App\Models\Inputs;
 use App\Models\NormalRange ;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewFormRequest;
+use App\Http\Requests\UpdateFormRequest;
 use App\Http\Controllers\Controller;
 
 class analysisController extends Controller
@@ -44,13 +45,24 @@ class analysisController extends Controller
              $analysis=$normal_range[0]->analysis;
         return view('admin.analysis.viewForm',compact('analysis','normal_range'));
       }catch(\Exception $ex){
-        return $ex;
+      
         return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
       }
      }
      public function createForm(){
         return view('admin.analysis.createNewForm');
      }
+     public function AddNewInputs($analysis_id){
+       try{
+          $analysis=Analysis::where('analysis_id',$analysis_id)->get();
+          return view('admin.analysis.addNewInputs',compact('analysis'));
+        }catch(\Exception $ex){
+        return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
+        }
+   }
+   public function storeNewInputs($analysis_id,NewFormRequest $request){
+    return "kkk";
+   }
      public function storeForm(NewFormRequest $request){
         try{
             $analysis_name=$request->analysis_name;
@@ -94,13 +106,54 @@ class analysisController extends Controller
            return redirect()->route('admin.showAnalysis')->with(['success'=>'تم الحفظ بنجاح']);
            }catch(\Exception $ex){
             DB::rollback();
-            return $ex;
                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
            }
      }
-     public function updateForm($analysis_id,NewFormRequest $request){
-        return "jjj";
-     }
+     
+    public function analysisUpdateForm(UpdateFormRequest $request,$analysis_id){
+         try{
+          DB::beginTransaction();
+          Analysis::where('analysis_id',$analysis_id)
+          ->update(
+             [
+                 "price"=>$request["price"],
+                 "group_id"=>$request["group"],
+             ]
+          );
+
+          $input_name=$request->input;
+          $max_normal=$request->max_normal;
+          $min_normal=$request->min_normal;
+
+          for($count=0 ;$count <count($input_name);$count++){
+             $data=array(
+               'input_name'=>$input_name[$count],
+               'analysis_id'=>$analysis_id
+             );
+           $insert_data[]=$data;
+          }
+          foreach($insert_data as $in_d){
+             $input_id[]=Inputs::insertGetId($in_d);
+          }
+           for($count=0 ;$count <count($input_name);$count++){
+             $data=array(
+               'high_range'=>$max_normal[$count],
+               'low_range'=>$min_normal[$count],
+               'analysis_id'=>$analysis_id,
+               'input_id'=>$input_id[$count]
+             );
+           $insert_data2[]=$data;
+          }
+          NormalRange::insert($insert_data2);
+          DB::commit();
+
+          return redirect()->route('admin.showAnalysis')->with(['success'=>'تم الحفظ بنجاح']);
+         }catch(\Exception $ex){
+            DB::rollback();
+               return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
+           }
+
+    }
 
 
 }
