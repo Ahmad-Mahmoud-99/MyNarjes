@@ -10,8 +10,8 @@
                   </div>
                   <h4 class="card-title">Create New Form</h4>
                   <br>
-                  <div class="card-body" >                     
-                   <form class="navbar-form col-lg-12" method="post" action="{{route('admin.analysis.store')}}">
+                  <div class="card-body">                     
+                   <form class="navbar-form col-lg-12 form" method="post" action="{{route('admin.analysis.store')}}">
                           @csrf
                      <div class="row"> 
                           <div class="col-md-3">
@@ -117,6 +117,7 @@
                    
                 </div>
               </div>
+            </div>
             </div>
 
 

@@ -24,6 +24,6 @@ class Inputs extends Model
         return $this->belongsTo('App\Models\Analysis', 'input_id', 'analysis_id');
     }
     public function  normalrang(){
-        return $this->hasOne('App\Models\NormalRang', 'input_id');
+        return $this->hasOne('App\Models\NormalRange', 'input_id','id');
     }
 }

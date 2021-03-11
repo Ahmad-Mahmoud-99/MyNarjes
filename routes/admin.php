@@ -54,25 +54,19 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','prevent-back-histor
     ####################analysis managment##############
     Route::group(['prefix'=>'analysis', 'namespace'=>'analysis'],function(){
         Route::get('/','analysisController@index')->name('admin.showAnalysis');
-        Route::get('form/{id}','analysisController@viewForm')->name('admin.showAnalysis.form');
+        Route::get('showForm/{id}','analysisController@viewForm')->name('admin.showAnalysis.form');
+        Route::post('updateForm/{id}','analysisController@updateForm')->name('admin.showAnalysis.updateForm');
         Route::get('/search','analysisController@search')->name('admin.search');
         Route::get('/fiter', 'analysisController@filter')->name('admin.filter');
        Route::get('create','analysisController@createForm')->name('admin.analysis.create');
        Route::post('store','analysisController@storeForm')->name('admin.analysis.store');
-//        Route::get('/userManagment','analysisController@userManagment')->name('admin.userManagment');
-//        Route::get('edit/{id}','analysisController@edit')->name('admin.userManagment.edit');
-//        Route::post('update/{id}','analysisController@update')->name('admin.userManagment.update');//or put
     });
     ########################end analysis managment###########################
 
     #######################financial managment##########################
     Route::group(['prefix'=>'financialDetails', 'namespace'=>'financial'],function(){
         Route::get('/','financialController@index')->name('admin.laboratryAnalysisPrice');
-     //  Route::get('create','financialController@create')->name('admin.userManagment.create');
       Route::get('/search','financialController@search')->name('admin.laboratoryDetails.search');
-     //  Route::get('/filter', 'financialController@filter')->name('admin.user.filter');
-     //  Route::post('store','financialController@store')->name('admin.userManagment.store');
-     //  Route::get('/userManagment','financialController@userManagment')->name('admin.userManagment');
        Route::get('edit/{id}','financialController@edit')->name('admin.laboratoryDetails.edit');
        Route::post('update/{id}','financialController@update')->name('admin.laboratoryDetails.update');//or put
     });

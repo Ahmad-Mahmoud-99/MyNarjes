@@ -40,14 +40,9 @@ class analysisController extends Controller
     }
      public function viewForm($analysis_id){
       try{
-         $analysis_fields=Inputs::where('analysis_id',$analysis_id)->get();
-        $analysis=Analysis::where('analysis_id',$analysis_id)->get();
-        $normal_range="";            
-        for($count=0;$count<count($analysis_fields);$count++){
-          $normal_range =NormalRange::where('analysis_id',$analysis_id)->where('input_id',$analysis_fields[$count]['input_id'])->get();        
-        }
-        //return $normal_range;
-        return view('admin.analysis.viewForm',compact('analysis_fields'),compact('analysis'),compact('normal_range'));
+             $normal_range =NormalRange::with('input','analysis')->where('analysis_id',$analysis_id)->get();
+             $analysis=$normal_range[0]->analysis;
+        return view('admin.analysis.viewForm',compact('analysis','normal_range'));
       }catch(\Exception $ex){
         return $ex;
         return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
@@ -102,6 +97,9 @@ class analysisController extends Controller
             return $ex;
                return redirect()->back()->with(['error'=>'هناك خطأ ما يرجى اعادة المحاولة']);
            }
+     }
+     public function updateForm($analysis_id,NewFormRequest $request){
+        return "jjj";
      }
 
 

@@ -16,13 +16,13 @@ class NormalRange extends Model
 
     ];
     public function scopeSelection($query){
-        return $query->select('analysis_id','input_id','high_range','low_range');
+        return $query->select('id','analysis_id','input_id','high_range','low_range');
     }
     public function analysis(){
-       return $this->belongsTo('App\Models\Analysis', 'analysis_id');
+       return $this->belongsTo('App\Models\Analysis', 'analysis_id','analysis_id');
     }
     public function  input(){
-        return $this->hasOne('App\Models\inputs', 'input_id');
+        return $this->hasOne('App\Models\Inputs', 'input_id','input_id');
     }
     
 }

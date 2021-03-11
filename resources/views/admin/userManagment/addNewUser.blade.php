@@ -82,7 +82,8 @@
                           <input type="password"  value="{{old('password')}}" name="password"class="form-control">
                           @error('password')
                               <span class="text-danger">{{$message}} </span>
-                           @enderror                        </div>
+                           @enderror                
+                                   </div>
                       </div>
                       <div class="col-md-4 ">
                         <div class="form-group">

@@ -37,7 +37,8 @@ class Analysis extends Authenticatable
     public function analysis_requierd(){
         return $this->belongsTo('App\Models\Analysis_requierd', 'analysis_id', 'analysis_id');
     }
-
-
-
+    public function normal_range(){
+        return $this->hasMany('App\Models\NormalRange', 'analysis_id', 'analysis_id');
+    }
+    
     }
